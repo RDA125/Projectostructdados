@@ -22,7 +22,7 @@ def MenuUtilz():
             print("Eliminar - Progress")
             MenuCreator.CreateMenu.WaitEnter()
 
-        elif opc == 4:
+        elif opc == 4: #listar Utilizadores
             MenuCreator.CreateMenu.Clear()
             print("Listagem dos Utilizadores\n")
             ListarUtilz.ListarU("teste.html")
