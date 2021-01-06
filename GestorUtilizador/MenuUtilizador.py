@@ -23,5 +23,9 @@ def MenuUtilz():
             MenuCreator.CreateMenu.WaitEnter()
 
         elif opc == 4:
+            MenuCreator.CreateMenu.Clear()
+            print("Listagem dos Utilizadores\n")
             ListarUtilz.ListarU("teste.html")
+            print("\n")
+            MenuCreator.CreateMenu.WaitEnter()
 #end

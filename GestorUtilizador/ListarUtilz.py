@@ -12,7 +12,7 @@ def ListarU(fileName):
     for linha in linhas:
         linha = linha.rstrip('\n')
         Nome,Email,Telefone = linha.split("-")
-        print("%-20s %s" % (Nome, Email))
+        print("%-20s %-20s %s" % (Nome, Email,Telefone))
         print("<tr><td>%s</td><td>%s</td><td>%s</td></tr>" % (Nome, Email, Telefone), file=f)
     #endfor
 
