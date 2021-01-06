@@ -9,7 +9,7 @@ def MenuPrincipal():
             break
 
         elif opc == 1:
-
+            CreateMenu.Clear()
             GestorUtilizador.MenuUtilizador.MenuUtilz()
 
         elif opc == 2:

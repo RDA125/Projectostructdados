@@ -26,6 +26,5 @@ def MenuUtilz():
             MenuCreator.CreateMenu.Clear()
             print("Listagem dos Utilizadores\n")
             ListarUtilz.ListarU("teste.html")
-            print("\n")
             MenuCreator.CreateMenu.WaitEnter()
 #end
