@@ -1,5 +1,5 @@
 import MenuCreator.CreateMenu 
-from GestorUtilizador import ListarUtilz
+from GestorUtilizador import ListarUtilz,InserirU
 
 def MenuUtilz():
     while True:
@@ -11,8 +11,7 @@ def MenuUtilz():
 
         elif opc == 1:
 
-            print("Inserir - Progress")
-            MenuCreator.CreateMenu.WaitEnter()
+            InserirU.Inserir()
 
         elif opc == 2:
             print("Alterar - Progress")
@@ -23,8 +22,6 @@ def MenuUtilz():
             MenuCreator.CreateMenu.WaitEnter()
 
         elif opc == 4: #listar Utilizadores
-            MenuCreator.CreateMenu.Clear()
-            print("Listagem dos Utilizadores\n")
             ListarUtilz.ListarU("teste.html")
-            MenuCreator.CreateMenu.WaitEnter()
+
 #end

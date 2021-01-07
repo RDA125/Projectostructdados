@@ -29,18 +29,15 @@ def PrintMenu(Title, opcs, numOpc, exitmsg=''):
             opc = int(input("Escolha uma opção:"))
 
         except ValueError:
+            input("Opção tem que ser um valor inteiro.")
             Clear()
-            print("Opção tem que ser um valor inteiro.")
-            WaitEnter()
 
             continue
         #end
 
         if(opc<0 or opc>numOpc):
+            input("Opção não existe.")
             Clear()
-            print("Opção não existe.")
-            WaitEnter()
-            
         else:
             break
         #endif

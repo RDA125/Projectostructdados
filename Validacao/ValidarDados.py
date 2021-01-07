@@ -17,7 +17,6 @@ def Checkfile(fileName):
         f.write("Nome-Email-Telefone\n")
         f.close()
     #endif
-
-    return True
+    
         
             
