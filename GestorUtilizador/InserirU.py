@@ -30,14 +30,15 @@ def Inserir():
 
         if(VerfEmail(email)):
             if(VerfExist(email)):
-                input("Email já existe.")
-                
+                print('\033[1A'+input("Email já existe.")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
+
             else:
                 break
 
         else:
-            input("Email inválido.")
-            #clear uma linha
+            print('\033[1A'+input("Email inválido.")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
         #endif
 
     while True: 
@@ -45,21 +46,19 @@ def Inserir():
             tel = int(input("Telefone: "))
 
         except ValueError:
-            print("Número de Telefone inválido")
-            WaitEnter()
-            # maneira de limpar uma só linha
+            print('\033[1A'+input("Número de Telefone inválido")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
 
             continue 
         
         if(tel<910000000 or tel>999999999):
-            input("Número de Telefone tem que ter 9 digitos")
-            
-            # maneira de limpar uma só linha
-        
+            print('\033[1A'+input("Número de Telefone inválido [910000000-999999999]")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
+
         else:
             if(VerfExist(tel)):
-                input("Número de Telefone já existe.")
-                
+                print('\033[1A'+input("Número de Telefone já existe.")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
             else:
                 break
         #endif
