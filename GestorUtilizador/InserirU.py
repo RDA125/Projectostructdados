@@ -16,8 +16,7 @@ def Inserir():
             break
 
         else:
-            print("Nome inválido.")
-            input()
+            input("Nome inválido.")
             Clear()
         #endif
 
@@ -28,8 +27,7 @@ def Inserir():
             break
 
         else:
-            print("Email inválido.")
-            input()
+            input("Email inválido.")
             #clear uma linha
         #endif
 

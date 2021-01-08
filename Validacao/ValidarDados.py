@@ -32,7 +32,7 @@ def VerfName(name):
 
 
 def VerfEmail(email):
-    if re.search(r"^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$", email):
+    if re.search(r"^[a-zA-Z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$", email):
         return True
     return False
         
