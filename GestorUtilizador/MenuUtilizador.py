@@ -10,7 +10,7 @@ def MenuUtilz():
             break
 
         elif opc == 1:
-
+            MenuCreator.CreateMenu.Clear()
             InserirU.Inserir()
 
         elif opc == 2:

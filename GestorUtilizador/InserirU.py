@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import Checkfile
+from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 #dont forget listas
@@ -10,17 +10,28 @@ def Inserir():
     while True:
         print("Inserir Utilizador\n")
 
-        nome = input("Insira Nome: ")
+        name = input("Insira Nome: ")
 
-        # if validação nome pode usar clear
-        break
+        if(VerfName(name)):
+            break
+
+        else:
+            print("Nome inválido.")
+            input()
+            Clear()
+        #endif
 
     while True:
         email = input("Insira Email: ")
 
-        # if validação nome pode usar clear
+        if(VerfEmail(email)):
+            break
 
-        break
+        else:
+            print("Email inválido.")
+            input()
+            #clear uma linha
+        #endif
 
     while True: 
         try:
@@ -33,7 +44,7 @@ def Inserir():
 
             continue 
         
-        if(tel<100000000 or tel>999999999):
+        if(tel<910000000 or tel>999999999):
             input("Número de Telefone tem que ter 9 digitos")
             
             # maneira de limpar uma só linha
@@ -44,10 +55,11 @@ def Inserir():
     #endwhile
 
 
-    print(nome,email,tel, file=f,sep="-",end='')
+    print(name,email,tel, file=f,sep="-",end='')
     f.close()
+
     print("Utilizador inserido com sucesso: ")
-    print("Nome: %5s" % nome)
+    print("Nome: %5s" % name)
     print("E-Mail: %5s" % email)
     print("Telefone: %5s" % tel)
     WaitEnter()
