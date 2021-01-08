@@ -1,7 +1,6 @@
 from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,UpdateHtml
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
-#dont forget listas
 def Inserir():
     Checkfile("users.txt")
 

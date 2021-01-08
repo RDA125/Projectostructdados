@@ -1,5 +1,5 @@
 Nome-Email-Telefone
 Teste1-test@gmail.com-911111111
 Gert-gert@ipg.pt-921345678
-férg-ferg@hotmail.com-961234578
-José-jose@gm.bet-987654321
+fÃ©rg-ferg@hotmail.com-961234578
+JosÃ©-jose@gm.bet-987654321

@@ -9,7 +9,7 @@ def MenuUtilz():
             MenuCreator.CreateMenu.Clear()
             break
 
-        elif opc == 1:
+        elif opc == 1:#Inserir Utilizadores
             MenuCreator.CreateMenu.Clear()
             InserirU.Inserir()
 
