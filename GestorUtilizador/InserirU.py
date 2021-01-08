@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail
+from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,UpdateHtml
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 #dont forget listas
@@ -13,7 +13,12 @@ def Inserir():
         name = input("Insira Nome: ")
 
         if(VerfName(name)):
-            break
+            if(VerfExist(name)):
+                input("Nome já existe.")
+                Clear()
+
+            else:
+                break
 
         else:
             input("Nome inválido.")
@@ -24,7 +29,11 @@ def Inserir():
         email = input("Insira Email: ")
 
         if(VerfEmail(email)):
-            break
+            if(VerfExist(email)):
+                input("Email já existe.")
+                
+            else:
+                break
 
         else:
             input("Email inválido.")
@@ -48,14 +57,20 @@ def Inserir():
             # maneira de limpar uma só linha
         
         else:
-            break
+            if(VerfExist(tel)):
+                input("Número de Telefone já existe.")
+                
+            else:
+                break
         #endif
     #endwhile
 
 
     print(name,email,tel, file=f,sep="-",end='')
     f.close()
+    UpdateHtml("teste.html")
 
+    Clear()
     print("Utilizador inserido com sucesso: ")
     print("Nome: %5s" % name)
     print("E-Mail: %5s" % email)
