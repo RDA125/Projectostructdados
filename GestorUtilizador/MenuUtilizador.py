@@ -1,5 +1,5 @@
 import MenuCreator.CreateMenu 
-from GestorUtilizador import ListarUtilz,InserirU
+from GestorUtilizador import ListarUtilz,InserirU,AlterarU
 
 def MenuUtilz():
     while True:
@@ -14,8 +14,8 @@ def MenuUtilz():
             InserirU.Inserir()
 
         elif opc == 2:
-            print("Alterar - Progress")
-            MenuCreator.CreateMenu.WaitEnter()
+            MenuCreator.CreateMenu.Clear()
+            AlterarU.Alterar()
 
         elif opc == 3:
             print("Eliminar - Progress")

@@ -4,6 +4,7 @@ import re
 import unicodedata
 
 def Checkfile(fileName):#add return for values
+    p=0
 
     if(path.exists(fileName)):
 
@@ -11,12 +12,27 @@ def Checkfile(fileName):#add return for values
             f = open(fileName,"w")
             f.write("Nome-Email-Telefone\n")
             f.close()
+            return False
+        
+        else:
+            f= open(fileName,'r')
+            ln = f.readlines()
+
+            for l in ln:
+                p+=1
+
+            if(p == 1):
+                return False
+            else:
+
+                return True
         #endif
 
     else:
         f = open(fileName,"w")
         f.write("Nome-Email-Telefone\n")
         f.close()
+        return False
     #endif
 
 def UpdateHtml(fileName):
@@ -24,7 +40,7 @@ def UpdateHtml(fileName):
     l = f.readline()
     numLn = f.readlines() 
     f.close
-
+    
     nome,email,tel = l.split("-")
 
     f = open(fileName,"w")
@@ -41,6 +57,20 @@ def UpdateHtml(fileName):
 
     print("</table>",file=f)
     f.close()
+
+def UpdateFile(filename,numLn):
+    f = open(filename,"w")
+    f.write("Nome-Email-Telefone\n")
+    
+    for ln in numLn:
+        ln = ln.rstrip('\n')
+        Nome,Email,Telefone = ln.split("-")
+        print( Nome,Email,Telefone, file=f,sep="-",end='\n')
+    
+    f.flush()
+    f.close
+
+    UpdateHtml("teste.html")
 
 def VerfName(name):
     #remover acentos
