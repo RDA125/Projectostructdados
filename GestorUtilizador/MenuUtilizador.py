@@ -22,6 +22,7 @@ def MenuUtilz():
             MenuCreator.CreateMenu.WaitEnter()
 
         elif opc == 4: #listar Utilizadores
+            MenuCreator.CreateMenu.Clear()
             ListarUtilz.ListarU("teste.html")
 
 #end

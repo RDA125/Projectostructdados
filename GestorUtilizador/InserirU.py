@@ -64,8 +64,9 @@ def Inserir():
     #endwhile
 
 
-    print(name,email,tel, file=f,sep="-",end='')
+    print(name,email,tel, file=f,sep="-",end='\n')
     f.close()
+
     UpdateHtml("teste.html")
 
     Clear()

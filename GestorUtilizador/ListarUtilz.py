@@ -22,7 +22,7 @@ def ListarU(fileName):
     for ln in numLn:
         ln = ln.rstrip('\n')
         Nome,Email,Telefone = ln.split("-")
-        print("%-20s %-20s %s" % (Nome, Email,Telefone))
+        print("%-20s %-20s %s" % (Nome.encode('latin1').decode('utf-8'), Email,Telefone))
         print("<tr><td>%s</td><td>%s</td><td>%s</td></tr>" % (Nome, Email, Telefone), file=f)
     #endfor
 
@@ -41,4 +41,5 @@ def ListarU(fileName):
                 system(fileName)
                 break
             else:
+                system('cls')
                 break

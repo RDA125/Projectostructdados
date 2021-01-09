@@ -1,7 +1,7 @@
 from os import system
 
 def Clear():
-    _ = system('cls')
+    system('cls')
 
 #end 
 
