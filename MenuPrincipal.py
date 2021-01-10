@@ -3,7 +3,7 @@ import GestorUtilizador.MenuUtilizador
 
 def MenuPrincipal():
     while True:
-        opc = CreateMenu.PrintMenu("Teste MenuPrin",["Gerir Utilizadores","Gerir Tweets"],2)
+        opc = CreateMenu.PrintMenu("Menu Principal",["Gerir Utilizadores","Gerir Tweets"],2)
 
         if opc == 0:
             break

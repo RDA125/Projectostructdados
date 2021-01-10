@@ -6,7 +6,7 @@ def Elim():
 
     if Checkfile('users.txt'):
         while True:
-            print("Eliminaçãode Dados\n")
+            print("Eliminação de Dados\n")
 
             f = open("users.txt","r",encoding="latin1")
             l = f.readline() #cabeçalho

@@ -3,7 +3,7 @@ from GestorUtilizador import ListarUtilz,InserirU,AlterarU,EliminarU
 
 def MenuUtilz():
     while True:
-        opc = MenuCreator.CreateMenu.PrintMenu("Teste MenuUtilizador",["Inserir Util.","Alterar util.","Eliminar Util.","Listar Utilizadores"],4,"Voltar atrás")
+        opc = MenuCreator.CreateMenu.PrintMenu("Menu Utilizador",["Inserir Util.","Alterar util.","Eliminar Util.","Listar Utilizadores"],4,"Voltar atrás")
 
         if opc == 0:
             MenuCreator.CreateMenu.Clear()
