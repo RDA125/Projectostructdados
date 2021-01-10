@@ -1,6 +1,5 @@
 from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,UpdateFile
 from MenuCreator.CreateMenu import Clear,WaitEnter
-import unicodedata
 
 def Alterar():
 
@@ -134,8 +133,8 @@ def Alterar():
                 #endif
 
                 if((op != "s" and op != "S") and (op != "n" and op !="N")):
-                    print("Opção inválida")
-                
+                    print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                    print('\033[1A                            \033[K',end="\r")
                 else:
                     if(op != "s" and op != "S"):
                         Clear()
