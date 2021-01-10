@@ -13,11 +13,11 @@ def MenuUtilz():
             MenuCreator.CreateMenu.Clear()
             InserirU.Inserir()
 
-        elif opc == 2:
+        elif opc == 2:#Alterar dados de utilizador
             MenuCreator.CreateMenu.Clear()
             AlterarU.Alterar()
 
-        elif opc == 3:
+        elif opc == 3:#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()
             EliminarU.Elim()
 

@@ -1,5 +1,6 @@
 from MenuCreator import CreateMenu
-import GestorUtilizador.MenuUtilizador
+from GestorUtilizador import MenuUtilizador
+from GestorTweets import MenuTweets
 
 def MenuPrincipal():
     while True:
@@ -8,13 +9,13 @@ def MenuPrincipal():
         if opc == 0:
             break
 
-        elif opc == 1:
+        elif opc == 1:#Parte de Utilizadores
             CreateMenu.Clear()
-            GestorUtilizador.MenuUtilizador.MenuUtilz()
+            MenuUtilizador.MenuUtilz()
 
-        elif opc == 2:
-            print("Gerir tweets Teste")
-            CreateMenu.WaitEnter()
+        elif opc == 2:#Parte de Tweets
+            CreateMenu.Clear()
+            MenuTweets.MenuTwts()
 
 #end
 
