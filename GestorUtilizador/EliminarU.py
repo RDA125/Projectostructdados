@@ -33,8 +33,8 @@ def Elim():
 
                 if(str(sname.lower()) in ln[0].lower()):
                     found=1
-                    Nome,Email,Telefone = ln
-                    print("%-20s %-20s %s\n\n" % (Nome, Email,Telefone))
+                    Nome,Email,Num,Telefone,Oper = ln
+                    print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
 
                     op= input('Tem a certeza que deseja eliminar este Utilizador?')
 
@@ -80,7 +80,7 @@ def Elim():
 
                         if(found == 1):
                             Clear()
-                            ListarUtilz.ListarU("teste.html")
+                            ListarUtilz.ListarU("Users.html")
                             break
                         else:
                             Clear()

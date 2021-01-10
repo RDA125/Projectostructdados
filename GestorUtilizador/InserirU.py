@@ -102,7 +102,7 @@ def Inserir():
     print(name,email,num,tel,oper, file=f,sep="-",end='\n')
     f.close()
 
-    UpdateHtml("teste.html")
+    UpdateHtml("Users.html")
 
     Clear()
     print("Utilizador inserido com sucesso: ")

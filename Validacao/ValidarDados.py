@@ -74,7 +74,7 @@ def UpdateFile(filename,numLn):
     f.flush()
     f.close
 
-    UpdateHtml("teste.html")
+    UpdateHtml("Users.html")
 
 
 def VerfName(name):

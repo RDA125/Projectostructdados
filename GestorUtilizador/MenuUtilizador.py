@@ -23,6 +23,6 @@ def MenuUtilz():
 
         elif opc == 4: #listar Utilizadores
             MenuCreator.CreateMenu.Clear()
-            ListarUtilz.ListarU("teste.html")
+            ListarUtilz.ListarU("Users.html")
 
 #end
