@@ -121,14 +121,17 @@ def Alterar():
             if(found == 0):
                 input("Nome não existe")
                 Clear()
-            
-            elif(found == -1):
-                Clear()
-                continue
 
             else:
-                UpdateFile("users.txt",numLn)
-                op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
+
+                if(found == 1):
+
+                    UpdateFile("users.txt",numLn)
+                    op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
+
+                else:
+                    op = input("Deseja alterar mais?(s/n)\n")
+                #endif
 
                 if((op != "s" and op != "S") and (op != "n" and op !="N")):
                     print("Opção inválida")
