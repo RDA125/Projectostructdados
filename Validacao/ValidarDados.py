@@ -3,7 +3,9 @@ from os import path
 import re
 import unicodedata
 
-def Checkfile(fileName):#add return for values
+#User specific verf
+
+def Checkfile(fileName):
     p=0
 
     if(path.exists(fileName)):
@@ -128,3 +130,79 @@ def VerfOper(oper):
         #endfor
     #endif
     return False
+
+
+#Tweet specific verf
+
+def CheckfileTw(fileName):
+
+    if(path.exists(fileName)):
+
+        if(os.stat(fileName).st_size == 0):
+            f = open(fileName,"w")
+            f.write("Id-Tweet\n")
+            f.close()
+            return False
+        
+        else:
+            f= open(fileName,'r')
+            ln = f.readlines()
+            f.close()
+
+            for l in ln:
+                p+=1
+
+            if(p == 1):
+                return False
+            else:
+
+                return True
+        #endif
+
+    else:
+        f = open(fileName,"w")
+        f.write("Id-Tweet\n")
+        f.close()
+        return False
+    #endif
+
+
+def UpdateHtmlTw(fileName):
+    f = open("Tweets.txt","r")
+    l = f.readline()
+    numLn = f.readlines() 
+    f.close
+    
+    idtw,tw = l.split("-")
+
+    f = open(fileName,"w")
+    print("<title>Lista Tweets</title>", file=f)
+    print ("<table>", file=f)
+    print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
+    print("<h1>Lista de Tweets<h1>", file=f)
+    print("<tr><th>%s</th><th>%s</th></tr>" % (idtw,tw), file=f)
+
+    for ln in numLn:
+        ln = ln.rstrip('\n')
+        Id,Tw = ln.split("-")
+        print("<tr><td>%s</td><td>%s</td></tr>" % (Id,Tw), file=f)
+    #endfor
+
+    print("</table>",file=f)
+    f.close()
+
+
+def UpdateFileTw(filename,numLn):
+    f = open(filename,"w")
+    f.write("Id-Tweet\n")
+    
+    for ln in numLn:
+        ln = ln.rstrip('\n')
+        Id,Tw = ln.split("-")
+        print(Id,Tw, file=f,sep="-",end='\n')
+    #endfor
+
+    f.flush()
+    f.close
+
+    UpdateHtml("Tweets.html")
