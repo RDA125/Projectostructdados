@@ -12,6 +12,7 @@ def ListarU(fileName):
     nome,email,num,tel,oper = l.split("-")
 
     f = open(fileName,"w",encoding="utf-8")
+    print("<title>Lista Users</title>", file=f)
     print ("<table>", file=f)
     print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
     print("<h1>Lista de utilizadores<h1>", file=f)
