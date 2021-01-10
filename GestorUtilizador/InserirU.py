@@ -87,8 +87,7 @@ def Inserir():
     #endwhile
 
     while True:
-        oper = input('Insira Operadora de Telemóveis: ')
-        oper = oper.upper()
+        oper = input('Insira Operadora de Telemóveis: ').upper()
 
         if(VerfOper(oper)):
             break

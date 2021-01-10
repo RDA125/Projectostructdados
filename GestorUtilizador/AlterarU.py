@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,UpdateFile
+from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,VerfOper,UpdateFile
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 def Alterar():
@@ -32,91 +32,160 @@ def Alterar():
 
                 if(str(sname.lower()) in ln[0].lower()):
                     found=1
-                    Nome,Email,Telefone = ln
-                    print("%-20s %-20s %s\n\n" % (Nome, Email,Telefone))
+                    Nome,Email,Num,Telefone,Oper = ln
+                    print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
+                    print('Alterar:\n 1-Nome\n 2-Email\n 3-Número\n 4-Telefone\n 5-Operadora\n 0-abortar\n')
+                    while True:
+                        try:
+                            op = int(input())
+                        except ValueError:
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[1A                            \033[K',end="\r")
+                        
+                        if(op == 1):
+                            while True:
 
-                    op= int(input('Alterar:\n 1-Nome\n 2-Email\n 3-Telefone\n 0-abortar\n'))
-                    if(op == 1):
-                        while True:
+                                newname = input("\nInsira Novo nome: ")
 
-                            newname = input("\nInsira Novo nome: ")
-
-                            if(VerfName(newname)):
-                                if(VerfExist(newname)):
-                                    print('\033[1A'+input("Nome já existe.")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                if(VerfName(newname)):
+                                    if(VerfExist(newname)):
+                                        print('\033[1A'+input("Nome já existe.")+'\033[K',end="\r")
+                                        print('\033[1A                            \033[K',end="\r")
+                                    else:
+                                        ln[0]=str(newname)
+                                        ln='-'.join(ln)
+                                        ln+='\n'
+                                        numLn[i]=ln
+                                        break
+                                    #endif
                                 else:
-                                    ln[0]=str(newname)
-                                    ln='-'.join(ln)
-                                    ln+='\n'
-                                    numLn[i]=ln
-                                    break
+                                    print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
+                                    print('\033[1A                            \033[K',end="\r")
                                 #endif
-                            else:
-                                print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                                print('\033[1A                            \033[K',end="\r")
-                            #endif
-                        #endwhile
+                            #endwhile
+                            break
 
-                    elif(op == 2):
-                        while True:
+                        elif(op == 2):
+                            while True:
 
-                            newmail = input("\nInsira Novo email: ")
+                                newmail = input("\nInsira Novo email: ")
 
-                            if(VerfEmail(newmail)):
-                                if(VerfExist(newmail)):
-                                    print('\033[1A'+input("email já existe.")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                if(VerfEmail(newmail)):
+                                    if(VerfExist(newmail)):
+                                        print('\033[1A'+input("email já existe.")+'\033[K',end="\r")
+                                        print('\033[1A                            \033[K',end="\r")
+                                    else:
+                                        ln[1]=str(newmail)
+                                        ln='-'.join(ln)
+                                        ln+='\n'
+                                        numLn[i]=ln
+                                        break
+                                    #endif
                                 else:
-                                    ln[1]=str(newmail)
-                                    ln='-'.join(ln)
-                                    ln+='\n'
-                                    numLn[i]=ln
-                                    break
+                                    print('\033[1A'+input("email inválido.")+'\033[K',end="\r")
+                                    print('\033[1A                            \033[K',end="\r")
                                 #endif
-                            else:
-                                print('\033[1A'+input("email inválido.")+'\033[K',end="\r")
-                                print('\033[1A                            \033[K',end="\r")
-                            #endif
-                        #endwhile
-                    
-                    elif(op == 3):
-                        while True:
-                            
-                            try:
-                                newtel = int(input("\nInsira Novo Nº Telefone: "))
+                            #endwhile
+                            break
+                        
+                        elif(op == 3):
+                            while True:
+                                try:
+                                    newnum = int(input("Insira Novo Número: "))
 
-                            except ValueError:
-                                print('\033[1A'+input("Número de Telefone inválido")+'\033[K',end="\r")
-                                print('\033[1A                            \033[K',end="\r")
-
-                                continue 
-                            
-                            if(newtel<910000000 or newtel>999999999):
-                                print('\033[1A'+input("Número de Telefone inválido [910000000-999999999]")+'\033[K',end="\r")
-                                print('\033[1A                            \033[K',end="\r")
-
-                            else:
-                                if(VerfExist(newtel)):
-                                    print('\033[1A'+input("Número de Telefone já existe.")+'\033[K',end="\r")
+                                except ValueError:
+                                    print('\033[1A'+input("Número inválido")+'\033[K',end="\r")
                                     print('\033[1A                            \033[K',end="\r")
-                                else:
-                                    ln[2]=str(newtel)
-                                    ln='-'.join(ln)
-                                    ln+='\n'
-                                    numLn[i]=ln
-                                    break
-                            #endif
-                        #endwhile
 
-                    elif(op == 0):
-                        found = -1
+                                    continue
+
+                                if(newnum<1000000 or newnum>9999999):
+                                    print('\033[1A'+input("Número tem que ter 7 digitos")+'\033[K',end="\r")
+                                    print('\033[1A                            \033[K',end="\r")
+
+                                else:
+                                    if(VerfExist(newnum)):
+                                        print('\033[1A'+input("Número de Utilizador já existe.")+'\033[K',end="\r")
+                                        print('\033[1A                            \033[K',end="\r")
+                                    else:
+                                        ln[2]=str(newtel)
+                                        ln='-'.join(ln)
+                                        ln+='\n'
+                                        numLn[i]=ln
+                                        break
+                                #endif
+                            #endwhile
+                            break
+
+                        elif(op == 4):
+                            while True:
+                                
+                                try:
+                                    newtel = int(input("\nInsira Novo Nº Telefone: "))
+
+                                except ValueError:
+                                    print('\033[1A'+input("Número de Telefone inválido")+'\033[K',end="\r")
+                                    print('\033[1A                            \033[K',end="\r")
+
+                                    continue 
+                                
+                                if(newtel<910000000 or newtel>999999999):
+                                    print('\033[1A'+input("Número de Telefone inválido [910000000-999999999]")+'\033[K',end="\r")
+                                    print('\033[1A                            \033[K',end="\r")
+
+                                else:
+                                    if(VerfExist(newtel)):
+                                        print('\033[1A'+input("Número de Telefone já existe.")+'\033[K',end="\r")
+                                        print('\033[1A                            \033[K',end="\r")
+                                    else:
+                                        ln[3]=str(newtel)
+                                        ln='-'.join(ln)
+                                        ln+='\n'
+                                        numLn[i]=ln
+                                        break
+                                #endif
+                            #endwhile
+                            break
+
+                        elif(op == 5):
+                            while True:
+                                newoper = input('Insira Nova Operadora de Telemóveis: ').upper()
+
+                                if(VerfOper(newoper)):
+                                    if(newoper == Oper):
+                                        print('\033[1A'+input("Operadora tem que ser diferente à existente")+'\033[K',end="\r")
+                                        print('\033[1A                            \033[K',end="\r")
+                                    
+                                    else:
+                                        ln[4]=str(newoper)
+                                        ln='-'.join(ln)
+                                        ln+='\n'
+                                        numLn[i]=ln
+                                        break
+
+                                else:
+                                    print('\033[1A'+input("Operadora inválida.")+'\033[K',end="\r")
+                                    print('\033[1A                            \033[K',end="\r")
+                                #endif
+                            #endwhile
+                            break
+
+                        elif(op == 0):
+                            found = -1
+                            break
+
+                        else:
+                            found = -5
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[1A                            \033[K',end="\r")
+                        #endif
+                    #endwhile
+                    if(found != -5):
                         break
-                    #endif
-                       
                 #endif
                 i+=1
             #endfor
+            
             if(found == 0):
                 input("Nome não existe")
                 Clear()
@@ -128,7 +197,7 @@ def Alterar():
                     UpdateFile("users.txt",numLn)
                     op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
 
-                else:
+                elif(found == -1):
                     op = input("Deseja alterar mais?(s/n)\n")
                 #endif
 
