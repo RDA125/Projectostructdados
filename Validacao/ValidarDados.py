@@ -17,6 +17,7 @@ def Checkfile(fileName):#add return for values
         else:
             f= open(fileName,'r')
             ln = f.readlines()
+            f.close()
 
             for l in ln:
                 p+=1
@@ -34,6 +35,7 @@ def Checkfile(fileName):#add return for values
         f.close()
         return False
     #endif
+
 
 def UpdateHtml(fileName):
     f = open("users.txt","r")
@@ -58,6 +60,7 @@ def UpdateHtml(fileName):
     print("</table>",file=f)
     f.close()
 
+
 def UpdateFile(filename,numLn):
     f = open(filename,"w")
     f.write("Nome-Email-Telefone\n")
@@ -71,6 +74,7 @@ def UpdateFile(filename,numLn):
     f.close
 
     UpdateHtml("teste.html")
+
 
 def VerfName(name):
     #remover acentos
@@ -99,6 +103,7 @@ def VerfExist(check):
         #endif
 
     return False
+
 
 def VerfEmail(email):
     if re.search(r"^[a-zA-Z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$", email):

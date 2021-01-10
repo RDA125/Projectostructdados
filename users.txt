@@ -1,4 +1,5 @@
 Nome-Email-Telefone
 Test1-test@test.com-987654321
-Gert-ger@ger.ger-978654321
-fÃ©rb-fer@fer.net-912345678
+Gert-ger@ger.net-978654321
+Fér-fer@fer.net-912345678
+José-josesilva@gmail.com-931245678

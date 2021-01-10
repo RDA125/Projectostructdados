@@ -12,7 +12,7 @@ def ListarU(fileName):
     
     nome,email,tel = l.split("-")
 
-    f = open(fileName,"w")
+    f = open(fileName,"w",encoding="utf-8")
     print ("<table>", file=f)
     print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
     print("<h1>Lista de utilizadores<h1>", file=f)
@@ -22,7 +22,7 @@ def ListarU(fileName):
     for ln in numLn:
         ln = ln.rstrip('\n')
         Nome,Email,Telefone = ln.split("-")
-        print("%-20s %-20s %s" % (Nome.encode('latin1').decode('utf-8'), Email,Telefone))
+        print("%-20s %-20s %s" % (Nome, Email,Telefone))
         print("<tr><td>%s</td><td>%s</td><td>%s</td></tr>" % (Nome, Email, Telefone), file=f)
     #endfor
 
@@ -39,6 +39,7 @@ def ListarU(fileName):
         else:
             if(opc == "s" or opc == "S"):
                 system(fileName)
+                system('cls')
                 break
             else:
                 system('cls')
