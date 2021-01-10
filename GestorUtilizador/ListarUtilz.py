@@ -2,7 +2,6 @@ from os import system
 import msvcrt
 
 def ListarU(fileName):
-    system('cls')
     print("Listagem dos Utilizadores\n")
 
     f = open("users.txt","r")
@@ -10,20 +9,20 @@ def ListarU(fileName):
     numLn = f.readlines() #informação na lista numLn
     f.close
     
-    nome,email,tel = l.split("-")
+    nome,email,num,tel,oper = l.split("-")
 
     f = open(fileName,"w",encoding="utf-8")
     print ("<table>", file=f)
     print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
     print("<h1>Lista de utilizadores<h1>", file=f)
-    print("<tr><th>%s</th><th>%s</th><th>%s</th></tr>" % (nome, email, tel), file=f)
-    print("%-20s %-20s %s" % (nome, email,tel))
+    print("<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>" % (nome, email, num, tel, oper), file=f)
+    print("%-20s %-20s %-20s %-20s %s" % (nome, email, num, tel, oper))
 
     for ln in numLn:
         ln = ln.rstrip('\n')
-        Nome,Email,Telefone = ln.split("-")
-        print("%-20s %-20s %s" % (Nome, Email,Telefone))
-        print("<tr><td>%s</td><td>%s</td><td>%s</td></tr>" % (Nome, Email, Telefone), file=f)
+        Nome,Email,Num,Telefone,Oper = ln.split("-")
+        print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
+        print("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (Nome, Email, Num, Telefone, Oper), file=f)
     #endfor
 
     print("</table>",file=f)

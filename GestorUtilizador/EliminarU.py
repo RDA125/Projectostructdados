@@ -1,5 +1,6 @@
 from Validacao.ValidarDados import Checkfile,VerfName,VerfExist,UpdateFile
 from MenuCreator.CreateMenu import Clear,WaitEnter
+from GestorUtilizador import ListarUtilz
 
 def Elim():
 
@@ -76,8 +77,14 @@ def Elim():
                 
                 else:
                     if(op != "s" and op != "S"):
-                        Clear()
-                        break
+
+                        if(found == 1):
+                            Clear()
+                            ListarUtilz.ListarU("teste.html")
+                            break
+                        else:
+                            Clear()
+                            break
                     else:
                         op=0
                         Clear()

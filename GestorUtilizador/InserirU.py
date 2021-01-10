@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,UpdateHtml
+from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,VerfOper,UpdateHtml
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 def Inserir():
@@ -40,6 +40,29 @@ def Inserir():
             print('\033[1A                            \033[K',end="\r")
         #endif
 
+    while True:
+        try:
+            num = int(input("Número: "))
+
+        except ValueError:
+            print('\033[1A'+input("Número inválido")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
+
+            continue
+
+        if(num<1000000 or num>9999999):
+            print('\033[1A'+input("Número tem que ter 7 digitos")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
+
+        else:
+            if(VerfExist(num)):
+                print('\033[1A'+input("Número de Utilizador já existe.")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
+            else:
+                break
+        #endif
+    #endwhile
+
     while True: 
         try:
             tel = int(input("Telefone: "))
@@ -63,8 +86,21 @@ def Inserir():
         #endif
     #endwhile
 
+    while True:
+        oper = input('Insira Operadora de Telemóveis: ')
+        oper = oper.upper()
 
-    print(name,email,tel, file=f,sep="-",end='\n')
+        if(VerfOper(oper)):
+            break
+
+        else:
+            print('\033[1A'+input("Operadora inválida inválido.")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
+        #endif
+    #endwhile
+
+
+    print(name,email,num,tel,oper, file=f,sep="-",end='\n')
     f.close()
 
     UpdateHtml("teste.html")
@@ -73,5 +109,7 @@ def Inserir():
     print("Utilizador inserido com sucesso: ")
     print("Nome: %5s" % name)
     print("E-Mail: %5s" % email)
+    print("Número: %5s" % num)
     print("Telefone: %5s" % tel)
+    print("Operadora: %5s" % oper)
     WaitEnter()
