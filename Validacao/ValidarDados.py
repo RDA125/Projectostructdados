@@ -140,7 +140,7 @@ def CheckfileTw(fileName):
 
         if(os.stat(fileName).st_size == 0):
             f = open(fileName,"w")
-            f.write("Id-Tweet\n")
+            f.write("Id-Tweet-Likes\n")
             f.close()
             return False
         
@@ -161,7 +161,7 @@ def CheckfileTw(fileName):
 
     else:
         f = open(fileName,"w")
-        f.write("Id-Tweet\n")
+        f.write("Id-Tweet-Likes\n")
         f.close()
         return False
     #endif
@@ -173,19 +173,19 @@ def UpdateHtmlTw(fileName):
     numLn = f.readlines() 
     f.close
     
-    idtw,tw = l.split("-")
+    idtw,tw,lk = l.split("-")
 
     f = open(fileName,"w")
     print("<title>Lista Tweets</title>", file=f)
     print ("<table>", file=f)
     print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
     print("<h1>Lista de Tweets<h1>", file=f)
-    print("<tr><th>%s</th><th>%s</th></tr>" % (idtw,tw), file=f)
+    print("<tr><th>%s</th><th>%s</th><th>%s</th></tr>" % (idtw,tw,lk), file=f)
 
     for ln in numLn:
         ln = ln.rstrip('\n')
-        Id,Tw = ln.split("-")
-        print("<tr><td>%s</td><td>%s</td></tr>" % (Id,Tw), file=f)
+        Id,Tw,Lk = ln.split("-")
+        print("<tr><td>%s</td><td>%s</td><td>%s</td></tr>" % (Id,Tw,Lk), file=f)
     #endfor
 
     print("</table>",file=f)
@@ -194,7 +194,7 @@ def UpdateHtmlTw(fileName):
 
 def UpdateFileTw(filename,numLn):
     f = open(filename,"w")
-    f.write("Id-Tweet\n")
+    f.write("Id-Tweet-Likes\n")
     
     for ln in numLn:
         ln = ln.rstrip('\n')
