@@ -127,6 +127,19 @@ def VerfOper(oper):
     #endif
     return False
 
+def GetName(email,num):
+    f = open("users.txt","r")
+    l = f.readline() 
+    numLn = f.readlines()
+    
+    for ln in numLn:
+        ln = ln.rstrip('\n')
+        ln = ln.split('-')
+        
+        if((str(email).lower() in ln ) and (str(num) in ln)):
+            return ln[0]
+        #endif
+    #endfor
 
 #Tweet specific verf
 
