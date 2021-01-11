@@ -17,7 +17,7 @@ def Alterar():
             while True:
                 sname = input("Insira nome do Utilizador que deseja Alterar os Dados(0-voltar atrás): ")
                 
-                if(int(sname) == 0):
+                if(sname == '0'):
                     Clear()
                     return
                 #endif

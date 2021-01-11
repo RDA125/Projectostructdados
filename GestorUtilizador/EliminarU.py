@@ -16,7 +16,11 @@ def Elim():
             i=0
 
             while True:
-                sname = input("Insira nome do Utilizador que deseja Eliminar: ")
+                sname = input("Insira nome do Utilizador que deseja Eliminar(0-Voltar atrás): ")
+
+                if(sname == '0'):
+                    Clear()
+                    return
 
                 if(VerfName(sname)):
                     break
@@ -36,7 +40,7 @@ def Elim():
                     Nome,Email,Num,Telefone,Oper = ln
                     print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
 
-                    op= input('Tem a certeza que deseja eliminar este Utilizador?')
+                    op= input('Tem a certeza que deseja eliminar este Utilizador(s/n)?')
 
                     if((op != "s" and op != "S") and (op != "n" and op !="N")):
                         print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
