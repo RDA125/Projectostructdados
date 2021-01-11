@@ -20,6 +20,7 @@ def Alterar():
                 if(int(sname) == 0):
                     Clear()
                     return
+                #endif
 
                 if(VerfName(sname)):
                     break

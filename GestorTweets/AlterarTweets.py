@@ -23,11 +23,12 @@ def AlterarTw():
 
                 finally:
                     break
-
+            #endwhile
             
             if(sId == 0):
                 Clear()
                 return
+            #endif
 
             for ln in numLn:
                 ln = ln.rstrip('\n')
