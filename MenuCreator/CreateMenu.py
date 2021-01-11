@@ -13,8 +13,10 @@ def WaitEnter():
 def PrintMenu(Title, opcs, numOpc, exitmsg=''):
     while True:
         try:
-            print(Title+"\n")
-
+            if(len(Title)>0):
+                print(Title+"\n")
+            #endif
+            
             for i in range(numOpc):
                 print(i+1,": ",opcs[i])
             #endfor
