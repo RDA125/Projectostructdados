@@ -135,6 +135,7 @@ def VerfOper(oper):
 #Tweet specific verf
 
 def CheckfileTw(fileName):
+    p=0
 
     if(path.exists(fileName)):
 
@@ -145,7 +146,7 @@ def CheckfileTw(fileName):
             return False
         
         else:
-            f= open(fileName,'r')#use this code in insert to know the id number => total number of lines
+            f= open(fileName,'r')
             ln = f.readlines()
             f.close()
 
@@ -164,6 +165,16 @@ def CheckfileTw(fileName):
         f.write("Id-Tópico-Tweet-Likes\n")
         f.close()
         return False
+    #endif
+
+
+def VerfTweet(tweet):
+    TwLen = len(tweet)
+
+    if(TwLen<= 0 or TwLen>250):
+        return False
+    else:
+        return True
     #endif
 
 

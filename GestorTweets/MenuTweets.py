@@ -1,5 +1,5 @@
 import MenuCreator.CreateMenu 
-from GestorTweets import ListarTweets#,InserirU,AlterarU,EliminarU
+from GestorTweets import ListarTweets,InserirTweets#,AlterarU,EliminarU
 
 def MenuTwts():
     while True:
@@ -10,8 +10,8 @@ def MenuTwts():
             break
 
         elif opc == 1:#Inserir Utilizadores
-            print("Inserir tweets Teste")
-            MenuCreator.CreateMenu.WaitEnter()
+            MenuCreator.CreateMenu.Clear()
+            InserirTweets.InserirTw()
 
         elif opc == 2:#Alterar dados de utilizador
             print("Alterar tweets Teste")

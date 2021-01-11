@@ -1,5 +1,6 @@
 from os import system
 from Validacao.ValidarDados import CheckfileTw
+import textwrap
 import msvcrt
 
 def ListarTw(fileName):
@@ -19,13 +20,13 @@ def ListarTw(fileName):
         print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
         print("<h1>Lista de Tweets<h1>", file=f)
         print("<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>" % (idtw,tp,tw,lk), file=f)
-        print("%-20s %-20s %-20s %s" % (idtw,tp,tw,lk))
+        print("%-20s %-20s %s - %s" % (idtw,tp,tw,lk))
 
         for ln in numLn:
             ln = ln.rstrip('\n')
             Id,Tp,Tw,Lk = ln.split("-")
             print("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (Id,Tp,Tw,Lk), file=f)
-            print("%-20s %-20s %-20s %s" % (Id,Tp,Tw,Lk))
+            print("%-20s %-20s %-20s - %s" % (Id,Tp,Tw,Lk))
         #endfor
 
         print("</table>",file=f)
