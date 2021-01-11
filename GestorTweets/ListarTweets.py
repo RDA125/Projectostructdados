@@ -26,7 +26,7 @@ def ListarTw(fileName):
             ln = ln.rstrip('\n')
             Id,Tp,Tw,Lk = ln.split("-")
             print("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (Id,Tp,Tw,Lk), file=f)
-            print("%-20s %-20s %-20s - %s" % (Id,Tp,Tw,Lk))
+            print("%-20s %-20s %s - %s" % (Id,Tp,Tw,Lk))
         #endfor
 
         print("</table>",file=f)

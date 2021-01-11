@@ -2,6 +2,8 @@ from MenuCreator import CreateMenu
 from GestorUtilizador import MenuUtilizador
 from GestorTweets import MenuTweets
 
+#adicionar login
+
 def MenuPrincipal():
     while True:
         opc = CreateMenu.PrintMenu("Menu Principal",["Gerir Utilizadores","Gerir Tweets"],2)
