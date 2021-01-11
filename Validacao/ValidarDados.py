@@ -145,7 +145,7 @@ def CheckfileTw(fileName):
             return False
         
         else:
-            f= open(fileName,'r')#use this code in insert to know the id number => total number of lines - 1(firstline)
+            f= open(fileName,'r')#use this code in insert to know the id number => total number of lines
             ln = f.readlines()
             f.close()
 
@@ -168,7 +168,7 @@ def CheckfileTw(fileName):
 
 
 def UpdateHtmlTw(fileName):
-    f = open("Tweets.txt","r")
+    f = open("tweets.txt","r")
     l = f.readline()
     numLn = f.readlines() 
     f.close
