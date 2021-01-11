@@ -3,7 +3,6 @@ from MenuCreator.CreateMenu import Clear,WaitEnter
 
 def InserirTw():
     CheckfileTw("tweets.txt")
-    p=0
     Lk=0 #likes começão a 0
 
     #p = id do tweet
@@ -11,8 +10,7 @@ def InserirTw():
     ln = f.readlines()
     f.close()
 
-    for l in ln:
-        p+=1
+    p = len(ln)
     #endfor
 
     f = open("tweets.txt","a")

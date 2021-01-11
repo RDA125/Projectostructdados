@@ -1,0 +1,1 @@
+MenuCreator.CreateMenu.Clear()

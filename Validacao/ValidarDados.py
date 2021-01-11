@@ -6,7 +6,6 @@ import unicodedata
 #User specific verf
 
 def Checkfile(fileName):
-    p=0
 
     if(path.exists(fileName)):
 
@@ -21,10 +20,7 @@ def Checkfile(fileName):
             ln = f.readlines()
             f.close()
 
-            for l in ln:
-                p+=1
-
-            if(p == 1):
+            if(len(ln) == 1):
                 return False
             else:
 
@@ -135,7 +131,6 @@ def VerfOper(oper):
 #Tweet specific verf
 
 def CheckfileTw(fileName):
-    p=0
 
     if(path.exists(fileName)):
 
@@ -150,10 +145,7 @@ def CheckfileTw(fileName):
             ln = f.readlines()
             f.close()
 
-            for l in ln:
-                p+=1
-
-            if(p == 1):
+            if(len(ln) == 1):
                 return False
             else:
 

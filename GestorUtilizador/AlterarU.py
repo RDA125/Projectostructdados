@@ -15,7 +15,11 @@ def Alterar():
             i=0
 
             while True:
-                sname = input("Insira nome do Utilizador que deseja Alterar os Dados: ")
+                sname = input("Insira nome do Utilizador que deseja Alterar os Dados(0-voltar atrás): ")
+                
+                if(int(sname) == 0):
+                    Clear()
+                    return
 
                 if(VerfName(sname)):
                     break
@@ -25,7 +29,6 @@ def Alterar():
                     print('\033[1A                            \033[K',end="\r")
                 #endif
 
-        
             for ln in numLn:
                 ln = ln.rstrip('\n')
                 ln = ln.split("-")
@@ -34,7 +37,7 @@ def Alterar():
                     found=1
                     Nome,Email,Num,Telefone,Oper = ln
                     print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
-                    print('Alterar:\n 1-Nome\n 2-Email\n 3-Número\n 4-Telefone\n 5-Operadora\n 0-abortar\n')
+                    print('Alterar:\n 1-Nome\n 2-Email\n 3-Número\n 4-Telefone\n 5-Operadora\n 0-abortar')
                     while True:
                         try:
                             op = int(input())
