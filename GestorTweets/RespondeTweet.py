@@ -1,10 +1,11 @@
-from Validacao.ValidarDados import CheckfileTw,VerfName,VerfExist,VerfTweet,UpdateHtmlTw
+from Validacao.ValidarDados import CheckfileTw,VerfName,VerfExist,VerfTweet,UpdateHtmlTw,UpdateFileTw
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 def RespTw(name):
     CheckfileTw("tweets.txt")
     Lk=0 #likes começão a 0
     i=0
+    found=0
 
     #p = id do tweet
     f= open("tweets.txt",'r')
@@ -45,6 +46,7 @@ def RespTw(name):
             ln = ln.split("-")
 
             if(str(sId) == ln[0]):
+                found=1
                 while True:
                     tw = input('Insira Tweet[250char]: ')
 
@@ -56,47 +58,41 @@ def RespTw(name):
                         print('\033[1A                            \033[K',end="\r")
                     #endif
                 #endwhile
-                top = ln[2]
-                Resp = [str(p),name,top,tw,str(Lk)]
+                top = ln[3]
+                Resp = [str(p),ln[0],name,top,tw,str(Lk)]
                 Resp='-'.join(Resp)
                 Resp+='\n'
                 numLn.insert((i+1),Resp)   
 
             #endif
             i+=1
+        #endfor
 
+        if(found == 1):
 
+            UpdateFileTw("tweets.txt",numLn)
+            while True:
+                op = input("Resposta guardada com sucesso\nDeseja responder a mais algum?(s/n)\n")
+                
+                if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                    print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                    print('\033[1A                            \033[K',end="\r")
+                            
+                else:
+                    break
+                #endif
+            #endwhile
 
-    f = open("tweets.txt","a")
-
-    while True:
-        print("Inserir Tweet\n")
-
-        top = input("Insira Tópico: ")
-
-        if(VerfName(top)):
-            break
+            if(op != "s" and op != "S"):
+                Clear()
+                break
+            else:
+                op=0
+                Clear()
+            #endif
 
         else:
-            input("Tópico inválido.")
+            input("Tweet não existe")
             Clear()
         #endif
-
-    while True:
-        tw = input('Insira Tweet[250char]: ')
-
-        if(VerfTweet(tw)):
-            break
-
-        else:
-            print('\033[1A'+input("Tweet tem de ter pelo menos um character com um máximo de 250.")+'\033[K',end="\r")
-            print('\033[1A                            \033[K',end="\r")
-        #endif
-    #endwhile
-
-    print(p,name,top,tw,Lk, file=f,sep="-",end='\n')
-    f.close()
-
-    UpdateHtmlTw("Users.html")
-    input("Tweet inserido com sucesso.")
-    Clear()
+    #endWhile

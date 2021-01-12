@@ -20,7 +20,7 @@ def ElimTw(name):
             if(name != ""):
                 for ln in numLn:
                     ln = ln.rstrip('\n')
-                    Id,Nome,Tp,Tw,Lk = ln.split("-")
+                    Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                     if(name.lower() == Nome.lower()):
                         print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
@@ -54,7 +54,7 @@ def ElimTw(name):
 
                     if(str(sId) in ln[0]):
                         found=1
-                        Id,Nome,Tp,Tw,Lk = ln
+                        Id,idResp,Nome,Tp,Tw,Lk = ln
                         print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
 
                         op= input('Tem a certeza que deseja eliminar este Tweet(s/n)?')
@@ -87,29 +87,43 @@ def ElimTw(name):
                     if(found == 1):
 
                         UpdateFileTw("tweets.txt",numLn)
-                        op = input("Tweet eliminado com sucesso\nDeseja Eliminar mais?(s/n)\n")
+                        while True:
+                            op = input("Tweet eliminado com sucesso\nDeseja Eliminar mais?(s/n)\n")
+                            
+                            if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                                print('\033[1A                            \033[K',end="\r")
+                            
+                            else:
+                                break
+                            #endif
+                        #endwhile
 
                     else:
-                        op = input("Deseja Eliminar outro Tweet?(s/n)\n")
+                        while True:
+                            op = input("Deseja Eliminar outro Tweet?(s/n)\n")
+                            
+                            if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                                print('\033[1A                            \033[K',end="\r")
+                            
+                            else:
+                                break
+                            #endif
+                        #endwhile
                     #endif
 
-                    if((op != "s" and op != "S") and (op != "n" and op !="N")):
-                        print("Opção inválida")
-                    
-                    else:
-                        if(op != "s" and op != "S"):
-
-                            if(found == 1):
-                                Clear()
-                                ListarTweets.ListarTw("Tweets.html")
-                                break
-                            else:
-                                Clear()
-                                break
-                        else:
-                            op=0
+                    if(op != "s" and op != "S"):
+                        if(found == 1):
                             Clear()
-                        #endif
+                            ListarTweets.ListarTw("Tweets.html")
+                            break
+                        else:
+                            Clear()
+                            break
+                    else:
+                        op=0
+                        Clear()
                     #endif
                 #endif
             else:

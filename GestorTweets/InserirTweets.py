@@ -4,6 +4,7 @@ from MenuCreator.CreateMenu import Clear,WaitEnter
 def InserirTw(name):
     CheckfileTw("tweets.txt")
     Lk=0 #likes começão a 0
+    idResp = 0 #Inserir <=> postar um tweet
 
     #p = id do tweet
     f= open("tweets.txt",'r')
@@ -49,9 +50,9 @@ def InserirTw(name):
         #endif
     #endwhile
 
-    print(p,name,top,tw,Lk, file=f,sep="-",end='\n')
+    print(p,idResp,name,top,tw,Lk, file=f,sep="-",end='\n')
     f.close()
 
-    UpdateHtmlTw("Users.html")
+    UpdateHtmlTw("Tweets.html")
     input("Tweet inserido com sucesso.")
     Clear()

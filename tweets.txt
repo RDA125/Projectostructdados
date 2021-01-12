@@ -1,2 +1,3 @@
-Id-Nome-Tópico-Tweet-Likes
-1-Test-Geral-Olá teste 1 2 3-0
+Id-IdResp-Nome-Tópico-Tweet-Likes
+1-0-Test-Geral-Olá teste 1 2 3-0
+2-0-Test-test-test 2 resp-0

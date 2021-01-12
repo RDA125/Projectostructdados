@@ -17,7 +17,7 @@ def AlterarTw(name):
 
             for ln in numLn:
                 ln = ln.rstrip('\n')
-                Id,Nome,Tp,Tw,Lk = ln.split("-")
+                Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                 if(name.lower() == Nome.lower()):
                     print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
@@ -49,7 +49,7 @@ def AlterarTw(name):
                     
                     if(str(sId) == ln[0]):
                         found=1
-                        Id,Nome,Tp,Tw,Lk = ln
+                        Id,idResp,Nome,Tp,Tw,Lk = ln
                         print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
                         print('Alterar:\n 1-Tópico\n 2-Tweet\n 0-abortar')
 
