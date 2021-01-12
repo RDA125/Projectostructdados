@@ -143,7 +143,7 @@ def AlterarTw(name):
                 #endif
 
             else:
-                input("Não tem tweets para alterar.")
+                input("Não existe tweets para alterar.")
                 Clear()
                 break
         #endwhile

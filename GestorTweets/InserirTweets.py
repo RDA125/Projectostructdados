@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateHtmlTw
+from Validacao.ValidarDados import CheckfileTw,VerfName,VerfExist,VerfTweet,UpdateHtmlTw
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 def InserirTw(name):
@@ -11,6 +11,15 @@ def InserirTw(name):
     f.close()
 
     p = len(ln)
+
+    for l in ln:
+        l = l.rstrip('\n')
+        l = l.lower()
+        l = l.split('-')
+
+        if(str(p) == l[0]):
+            p+=1
+        #endif
     #endfor
 
     f = open("tweets.txt","a")

@@ -52,3 +52,43 @@ def ListarTw(fileName):
         input("Não existe Valores para serem listados.")
         system('cls')
     #endif
+
+def ListarUTw(name):
+    if(CheckfileTw("tweets.txt")):
+        print("Listagem dos Tweets\n")
+
+        f = open("Tweets.txt","r")
+        l = f.readline()
+        numLn = f.readlines() 
+        f.close
+
+        idtw,nome,tp,tw,lk = l.split("-")
+        print("%-20s %-20s %-20s %s - %s" % (idtw,nome,tp,tw,lk))
+
+        for ln in numLn:
+            ln = ln.rstrip('\n')
+            Id,Nome,Tp,Tw,Lk = ln.split("-")
+            if(name.lower() == Nome.lower()):
+                print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+            #endif
+        #endfor
+
+        while True:
+            try:
+                opc = int(input("\n0-Voltar atrás\n"))
+            except ValueError:
+                print('\033[1A'+input("Tem que ser inteiro")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
+
+            if(opc != 0):
+                print("Opção inválida")
+                
+            else:
+                system('cls')
+                break
+            #endif
+        #endwhile
+    else:
+        input("Não tem tweets para listar")
+        system('cls')
+    #endif

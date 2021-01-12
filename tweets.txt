@@ -1,4 +1,2 @@
 Id-Nome-Tópico-Tweet-Likes
 1-Test-Geral-Olá teste 1 2 3-0
-2-Test-Teste-Teste para inserir nome-0
-3-Test-Geral-Teste inserir com nome do user-0
