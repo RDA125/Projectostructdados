@@ -46,7 +46,8 @@ def AlterarTw(name):
                     ln = ln.rstrip('\n')
                     ln = ln.split("-")
 
-                    if(str(sId) in ln[0]):
+                    
+                    if(str(sId) == ln[0]):
                         found=1
                         Id,Nome,Tp,Tw,Lk = ln
                         print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))

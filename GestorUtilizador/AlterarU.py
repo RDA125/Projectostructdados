@@ -39,7 +39,7 @@ def Alterar(name):
                 ln = ln.rstrip('\n')
                 ln = ln.split("-")
 
-                if(str(sname.lower()) in ln[0].lower()):
+                if(str(sname.lower()) == ln[0].lower()):
                     found=1
                     Nome,Email,Num,Telefone,Oper = ln
                     print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
