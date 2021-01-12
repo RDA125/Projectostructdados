@@ -101,3 +101,68 @@ def Elim():
         input('Não existe informação para ser Eliminada.')
         Clear()
     #endif
+
+def ElimTw(name):
+
+    if Checkfile('users.txt'):
+        while True:
+            print("Eliminação de Dados\n")
+
+            f = open("users.txt","r",encoding="latin1")
+            l = f.readline() #cabeçalho
+            numLn = f.readlines() #informação na lista numLn
+            f.close
+            found=0
+            i=0
+            
+            sname = name
+        
+            for ln in numLn:
+                ln = ln.rstrip('\n')
+                ln = ln.split("-")
+
+                if(str(sname.lower()) in ln[0].lower()):
+                    found=1
+                    Nome,Email,Num,Telefone,Oper = ln
+                    print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
+
+                    op= input('Tem a certeza que deseja eliminar(s/n)?')
+
+                    if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                        print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                        print('\033[1A                            \033[K',end="\r")
+                    
+                    else:
+                        if(op != "s" and op != "S"):
+                            found = -1
+                            break
+                                   
+                        else:
+                            ln='-'.join(ln)
+                            ln+='\n'
+                            numLn.remove(ln)
+                            break
+                        #endif
+                       
+                #endif
+                i+=1
+            #endfor
+
+            
+
+            if(found == 1):
+                UpdateFile("users.txt",numLn)
+                op = input("Utilizador eliminado com sucesso\n")
+                Clear()
+                return True
+
+            elif(found == -1):
+                Clear()
+                return False
+            #endif
+        #endwhile
+
+    else:
+        input('Não existe informação para ser Eliminada.')
+        Clear()
+    #endif

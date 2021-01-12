@@ -67,6 +67,7 @@ def Login():
             return name
         #endif
     else:
+        input("Não existe users para fazer login.\nPrima enter para fazer Sign in")
         InserirU.Inserir()
         name = Login()
     #endif
@@ -99,9 +100,9 @@ def MenuPrinU(name):
             break
 
         elif opc == 1:#Parte de Utilizadores
-            input("wait")
             CreateMenu.Clear()
-            #MenuUtilizador.MenuUtilz()
+            if(MenuUtilizador.MenuUTw(name)):
+                break
 
         elif opc == 2:#Parte de Tweets
             CreateMenu.Clear()
@@ -125,12 +126,10 @@ def Begin():
                 MenuPrincipal()
             else:
                 MenuPrinU(name)
-            #   MenuPrinUtil(name)
-            #MenuUtilizador.MenuUtilz()
 
         elif opc == 2:#sign
             CreateMenu.Clear()
-            MenuTweets.MenuTwU(name)
+            InserirU.Inserir()
 
 #end
 

@@ -1,7 +1,7 @@
 from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,VerfOper,UpdateFile
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
-def Alterar():
+def Alterar(name):
 
     if Checkfile('users.txt'):
         while True:
@@ -15,19 +15,24 @@ def Alterar():
             i=0
 
             while True:
-                sname = input("Insira nome do Utilizador que deseja Alterar os Dados(0-voltar atrás): ")
-                
-                if(sname == '0'):
-                    Clear()
-                    return
-                #endif
+                if(name == ""):
+                    sname = input("Insira nome do Utilizador que deseja Alterar os Dados(0-voltar atrás): ")
 
-                if(VerfName(sname)):
-                    break
+                    if(sname == '0'):
+                        Clear()
+                        return
+                    #endif
+                    
+                    if(VerfName(sname)):
+                        break
 
+                    else:
+                        print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
+                        print('\033[1A                            \033[K',end="\r")
+                    #endif
                 else:
-                    print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                    print('\033[1A                            \033[K',end="\r")
+                    sname = name
+                    break
                 #endif
 
             for ln in numLn:
