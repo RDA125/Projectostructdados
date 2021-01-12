@@ -15,6 +15,8 @@ def ElimTw():
             found=0
             i=0
 
+            #eliminar tweets para user com nome, não esquecer de por num if caso o seja o admin - ver alterar para a base
+
             while True:
                 try:
                     sId = int(input("Insira o Id do tweet que deseja Eliminar(0-Voltar atrás): "))

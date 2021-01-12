@@ -1,7 +1,7 @@
 from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateHtmlTw
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
-def InserirTw():
+def InserirTw(name):
     CheckfileTw("tweets.txt")
     Lk=0 #likes começão a 0
 
@@ -40,7 +40,7 @@ def InserirTw():
         #endif
     #endwhile
 
-    print(p,top,tw,Lk, file=f,sep="-",end='\n')
+    print(p,name,top,tw,Lk, file=f,sep="-",end='\n')
     f.close()
 
     UpdateHtmlTw("Users.html")

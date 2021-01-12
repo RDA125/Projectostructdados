@@ -29,7 +29,7 @@ def Login():
                         CreateMenu.Clear()
                         continue
                     
-                    if(num == 1):
+                    if(num == 1 and email == "admin@admin.com"):
                         admin=1
                         break
                     #endif
@@ -114,7 +114,6 @@ def Begin():
         opc = CreateMenu.PrintMenu("",["Login","Sign in"],2)
 
         if opc == 0:
-            CreateMenu.Clear()
             break
 
         elif opc == 1:#login

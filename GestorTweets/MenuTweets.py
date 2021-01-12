@@ -9,13 +9,13 @@ def MenuTwts():
             MenuCreator.CreateMenu.Clear()
             break
 
-        elif opc == 1:#Inserir Utilizadores
+        elif opc == 1:#Inserir Utilizadores - Remover para admin
             MenuCreator.CreateMenu.Clear()
-            InserirTweets.InserirTw()
+            #InserirTweets.InserirTw()
 
-        elif opc == 2:#Alterar dados de utilizador
+        elif opc == 2:#Alterar dados de utilizador - Remover para admin
             MenuCreator.CreateMenu.Clear()
-            AlterarTweets.AlterarTw()
+            #AlterarTweets.AlterarTw()
 
         elif opc == 3:#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()
@@ -38,11 +38,11 @@ def MenuTwU(name):
 
         elif opc == 1:#Inserir Utilizadores
             MenuCreator.CreateMenu.Clear()
-            InserirTweets.InserirTw()
+            InserirTweets.InserirTw(name)
 
         elif opc == 2:#Alterar dados de utilizador
             MenuCreator.CreateMenu.Clear()
-            AlterarTweets.AlterarTw()
+            AlterarTweets.AlterarTw(name)
 
         elif opc == 3:#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()
