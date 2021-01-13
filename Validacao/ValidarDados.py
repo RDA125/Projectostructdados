@@ -3,7 +3,7 @@ from os import path
 import re
 import unicodedata
 
-def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome dependendo do pedido
+def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome default
     for i in range(len(numLn)):
         numLn[i] = numLn[i].rstrip('\n')
         numLn[i] = numLn[i].strip()
@@ -16,7 +16,7 @@ def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome dependendo 
         numLn.sort(key= lambda x: str(x[9]))
 
     elif(Lk == True):
-        numLn.sort(key= lambda x: int(x[-1]))
+        numLn.sort(key= lambda x: int(x[-1]),reverse=True)
     else:
         numLn.sort()
 
