@@ -9,11 +9,11 @@ def MenuTwts():
             MenuCreator.CreateMenu.Clear()
             break
 
-        elif opc == 1:#Eliminar Utilizador
+        elif opc == 1:#Eliminar tweets
             MenuCreator.CreateMenu.Clear()
             EliminarTweets.ElimTw()
 
-        elif opc == 2: #listar Utilizadores
+        elif opc == 2: #listar tweets
             MenuCreator.CreateMenu.Clear()
             ListarTweets.ListarTw("Tweets.html")
 
@@ -28,25 +28,29 @@ def MenuTwU(name):
             MenuCreator.CreateMenu.Clear()
             break
         
-        elif opc == 1:
+        elif opc == 1:#listar todos os tweets
             MenuCreator.CreateMenu.Clear()
             ListarTweets.ListarTw("Tweets.html",name)
 
-        elif opc == 2:#Inserir Utilizadores
+        elif opc == 2:#Inserir tweet
             MenuCreator.CreateMenu.Clear()
             InserirTweets.InserirTw(name)
 
-        elif opc == 3:#Alterar dados de utilizador
+        elif opc == 3:#Alterar dados de tweet
             MenuCreator.CreateMenu.Clear()
             AlterarTweets.AlterarTw(name)
 
-        elif opc == 4:#Eliminar Utilizador
+        elif opc == 4:#Eliminar tweet
             MenuCreator.CreateMenu.Clear()
             EliminarTweets.ElimTw(name)
             ListarTweets.ListarUTw(name)
 
-        elif opc == 5:
+        elif opc == 5:#Listar tweet de util.
             MenuCreator.CreateMenu.Clear()
             ListarTweets.ListarUTw(name)
+
+        #pesquisa
+        #contar
+        #contar.agrupa
 
 #end
