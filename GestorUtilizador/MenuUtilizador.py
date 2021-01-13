@@ -15,7 +15,7 @@ def MenuUtilz():
 
         elif opc == 2:#Alterar dados de utilizador
             MenuCreator.CreateMenu.Clear()
-            AlterarU.Alterar("")
+            AlterarU.Alterar()
 
         elif opc == 3:#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()

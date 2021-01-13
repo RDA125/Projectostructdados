@@ -211,14 +211,32 @@ def UpdateHtmlTw(fileName):
 def UpdateFileTw(filename,numLn):
     f = open(filename,"w")
     f.write("Id-IdResp-Nome-Tópico-Tweet-Likes\n")
-    
-    for ln in numLn:
-        ln = ln.rstrip('\n')
-        Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-        print(Id,idResp,Nome,Tp,Tw,Lk, file=f,sep="-",end='\n')
+    level=0
+
+    for i in range(len(numLn)):
+        numLn[i] = numLn[i].rstrip('\n')
+        numLn[i] = numLn[i].strip()
+        if(i+1<len(numLn)):
+            numLn[i+1] = numLn[i+1].rstrip('\n')
+            numLn[i+1] = numLn[i+1].strip()
+
+        indentation = '\t' * level
+        print(indentation,numLn[i],file=f,end='\n')
+
+        if((i+1)<len(numLn)):
+            if(numLn[i+1][2] == "0"):
+                level = 0
+            elif(numLn[i+1][2]>numLn[i][2]):
+                level+=1
+            elif(numLn[i+1][2]<numLn[i][2]):
+                level-=1
+        elif((i+1)>=len(numLn)):
+            break
+        #endif
     #endfor
+
 
     f.flush()
     f.close
 
-    UpdateHtml("Tweets.html")
+    UpdateHtmlTw("Tweets.html")

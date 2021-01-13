@@ -1,3 +1,8 @@
 Id-IdResp-Nome-Tópico-Tweet-Likes
-1-0-Test-Geral-Olá teste 1 2 3-0
-2-0-Test-test-test 2 resp-0
+ 1-0-Test-test-olá test 1 2 3-0
+	 6-1-Test-test-tweet close haha-0
+		 7-6-Test-test-tweet ha-0
+	 3-1-Test-test-tweet resp-0
+		 5-3-Test-test-tweet resp 3-0
+ 2-0-Test-test-tweet ha-0
+	 4-2-Test-test-tweet hahha-0

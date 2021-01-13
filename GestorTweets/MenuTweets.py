@@ -11,7 +11,7 @@ def MenuTwts():
 
         elif opc == 1:#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()
-            EliminarTweets.ElimTw("")
+            EliminarTweets.ElimTw()
 
         elif opc == 2: #listar Utilizadores
             MenuCreator.CreateMenu.Clear()

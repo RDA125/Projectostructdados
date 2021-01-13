@@ -20,7 +20,7 @@ def AlterarTw(name):
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                 if(name.lower() == Nome.lower()):
-                    print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                    print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
                     numUTw+=1
                 #endif
             #endfor
@@ -44,6 +44,7 @@ def AlterarTw(name):
 
                 for ln in numLn:
                     ln = ln.rstrip('\n')
+                    ln = ln.strip()
                     ln = ln.split("-")
 
                     
@@ -66,7 +67,7 @@ def AlterarTw(name):
                                     newtop = input("\nInsira Novo Tópico: ")
 
                                     if(VerfName(newtop)):
-                                            ln[2]=str(newtop)
+                                            ln[3]=str(newtop)
                                             ln='-'.join(ln)
                                             ln+='\n'
                                             numLn[i]=ln
@@ -85,7 +86,7 @@ def AlterarTw(name):
                                     newTw = input("\nInsira Novo Tweet: ")
 
                                     if(VerfTweet(newTw)):
-                                        ln[3]=str(newTw)
+                                        ln[4]=str(newTw)
                                         ln='-'.join(ln)
                                         ln+='\n'
                                         numLn[i]=ln

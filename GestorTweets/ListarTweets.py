@@ -17,16 +17,16 @@ def ListarTw(fileName):
         f = open(fileName,"w")
         print("<title>Lista Tweets</title>", file=f)
         print ("<table>", file=f)
-        print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:5px; text-align:center}</style>", file=f)
+        print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:10px; text-align:center}th{width: 40px}</style>", file=f)
         print("<h1>Lista de Tweets<h1>", file=f)
         print("<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>" % (idtw,nome,tp,tw,lk), file=f)
-        print("%-20s  %-20s %-20s %s - %s" % (idtw,nome,tp,tw,lk))
+        print("%-5s  %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
         for ln in numLn:
             ln = ln.rstrip('\n')
             Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
             print("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (Id,Nome,Tp,Tw,Lk), file=f)
-            print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+            print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
         #endfor
 
         print("</table>",file=f)
@@ -63,14 +63,14 @@ def ListarUTw(name):
         f.close
 
         idtw,idresp,nome,tp,tw,lk = l.split("-")
-        print("%-20s %-20s %-20s %s - %s" % (idtw,nome,tp,tw,lk))
+        print("%-5s %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
         for ln in numLn:
             ln = ln.rstrip('\n')
             Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
             if(name.lower() == Nome.lower()):
-                print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
             #endif
         #endfor
 
@@ -82,8 +82,8 @@ def ListarUTw(name):
                 print('\033[1A                            \033[K',end="\r")
 
             if(opc != 0):
-                print("Opção inválida")
-                
+                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
             else:
                 system('cls')
                 break

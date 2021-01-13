@@ -1,7 +1,7 @@
 from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,VerfOper,UpdateFile
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
-def Alterar(name):
+def Alterar(name =""):
 
     if Checkfile('users.txt'):
         while True:

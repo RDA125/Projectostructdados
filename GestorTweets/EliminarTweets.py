@@ -2,7 +2,7 @@ from Validacao.ValidarDados import CheckfileTw,UpdateFileTw
 from MenuCreator.CreateMenu import Clear,WaitEnter
 from GestorTweets import ListarTweets
 
-def ElimTw(name):
+def ElimTw(name=""):
 
     if CheckfileTw('tweets.txt'):
         while True:

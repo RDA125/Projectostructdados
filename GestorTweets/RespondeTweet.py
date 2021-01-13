@@ -1,31 +1,32 @@
 from Validacao.ValidarDados import CheckfileTw,VerfName,VerfExist,VerfTweet,UpdateHtmlTw,UpdateFileTw
 from MenuCreator.CreateMenu import Clear,WaitEnter
+import re
 
 def RespTw(name):
     CheckfileTw("tweets.txt")
     Lk=0 #likes começão a 0
-    i=0
-    found=0
-
-    #p = id do tweet
-    f= open("tweets.txt",'r')
-    l = f.readline()
-    numLn = f.readlines()
-    f.close()
-
-    p = len(numLn) + 1
-
-    for lh in l:
-        lh = lh.rstrip('\n')
-        lh = lh.lower()
-        lh = lh.split('-')
-
-        if(str(p) == lh[0]):
-            p+=1
-        #endif
-    #endfor
-
+       
     while True:
+        i=0
+        found=0
+        #p = id do tweet
+        f= open("tweets.txt",'r')
+        l = f.readline()
+        numLn = f.readlines()
+        f.close()
+
+        p = len(numLn) + 1
+
+        for lh in l:
+            lh = lh.rstrip('\n')
+            lh = lh.lower()
+            lh = lh.split('-')
+
+            if(str(p) == lh[0]):
+                p+=1
+            #endif
+        #endfor
+   
         print("Responder Tweet\n")
 
         try:
@@ -45,7 +46,7 @@ def RespTw(name):
             ln = ln.rstrip('\n')
             ln = ln.split("-")
 
-            if(str(sId) == ln[0]):
+            if(str(sId) == ln[0].strip()):
                 found=1
                 while True:
                     tw = input('Insira Tweet[250char]: ')
@@ -59,7 +60,7 @@ def RespTw(name):
                     #endif
                 #endwhile
                 top = ln[3]
-                Resp = [str(p),ln[0],name,top,tw,str(Lk)]
+                Resp = [str(p),ln[0].strip(),name,top,tw,str(Lk)]
                 Resp='-'.join(Resp)
                 Resp+='\n'
                 numLn.insert((i+1),Resp)   
