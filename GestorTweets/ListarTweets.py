@@ -1,5 +1,6 @@
 from os import system
 from Validacao.ValidarDados import CheckfileTw, Orde
+from GestorTweets import RespondeTweet
 import textwrap
 import msvcrt
 
@@ -66,7 +67,7 @@ def showOrd(numLn):
         #endif
     #endwhile
 
-def ListarTw(fileName):
+def ListarTw(fileName,name=""):
     if(CheckfileTw("tweets.txt")):
         while True:
             print("Listagem dos Tweets\n")
@@ -98,16 +99,20 @@ def ListarTw(fileName):
             f.close()
           
             try:
-                opc = int(input("\033[1A\n1-organizar\n2-ver Html\n0-Voltar atrás\n\033[K"))
+                opc = int(input("\033[1A\n1-Responder\n2-organizar\n3-ver Html\n0-Voltar atrás\n\033[K"))
             except ValueError:
                 print('\033[1A'+input("Tem que ser inteiro")+'\033[K',end="\r")
                 system('cls')
 
             if(opc == 1):
                 system('cls')
+                RespondeTweet.RespTw(name)
+                opc = -1
+            if(opc == 2):
+                system('cls')
                 showOrd(numLn)#ordenar Id Nome topico Like
 
-            elif(opc == 2):
+            elif(opc == 3):
                 system(fileName)
                 system('cls')
                 break
@@ -117,6 +122,7 @@ def ListarTw(fileName):
 
             elif(opc == -1):
                 system('cls')
+
             else:
                 print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
                 system('cls')

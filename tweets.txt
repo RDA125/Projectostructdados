@@ -7,3 +7,4 @@ Id-IdResp-Nome-Tópico-Tweet-Likes
 			 8-5-José-test-tweet jose-1
  2-0-Test-Geral-tweet ha-0
 	 4-2-Test-test-tweet hahha-2
+		 9-4-Test-test-tweet resp a 4-0

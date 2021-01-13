@@ -22,7 +22,7 @@ def MenuTwts():
 #menu user inserir/alterar/eliminar/listar os seus tweets
 def MenuTwU(name):
     while True:
-        opc = MenuCreator.CreateMenu.PrintMenu("Menu Tweets",["Ver Tweets","Inserir Tweet","Alterar Tweet","Eliminar Tweet","Seus Tweets","Responder a Tweets"],6,"Voltar atrás")
+        opc = MenuCreator.CreateMenu.PrintMenu("Menu Tweets",["Ver Tweets","Inserir Tweet","Alterar Tweet","Eliminar Tweet","Seus Tweets"],5,"Voltar atrás")
 
         if opc == 0:
             MenuCreator.CreateMenu.Clear()
@@ -30,7 +30,7 @@ def MenuTwU(name):
         
         elif opc == 1:
             MenuCreator.CreateMenu.Clear()
-            ListarTweets.ListarTw("Tweets.html")
+            ListarTweets.ListarTw("Tweets.html",name)
 
         elif opc == 2:#Inserir Utilizadores
             MenuCreator.CreateMenu.Clear()
@@ -49,7 +49,4 @@ def MenuTwU(name):
             MenuCreator.CreateMenu.Clear()
             ListarTweets.ListarUTw(name)
 
-        elif opc == 6:
-            MenuCreator.CreateMenu.Clear()
-            RespondeTweet.RespTw(name)
 #end
