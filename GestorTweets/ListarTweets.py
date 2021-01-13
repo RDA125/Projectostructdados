@@ -105,7 +105,7 @@ def ListarTw(fileName):
 
             if(opc == 1):
                 system('cls')
-                showOrd(numLn)#ordenar Id Nome topico Lik
+                showOrd(numLn)#ordenar Id Nome topico Like
 
             elif(opc == 2):
                 system(fileName)

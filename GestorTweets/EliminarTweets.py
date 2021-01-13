@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,UpdateFileTw
+from Validacao.ValidarDados import CheckfileTw,UpdateFileTw,Orde
 from MenuCreator.CreateMenu import Clear,WaitEnter
 from GestorTweets import ListarTweets
 
@@ -17,6 +17,7 @@ def ElimTw(name=""):
             i=0
 
             #eliminar tweets para user com nome, não esquecer de por num if caso o seja o admin - ver alterar para a base
+            Orde(numLn)
             if(name != ""):
                 for ln in numLn:
                     ln = ln.rstrip('\n')

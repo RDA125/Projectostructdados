@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateFileTw
+from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateFileTw,Orde
 from MenuCreator.CreateMenu import Clear,WaitEnter
 
 def AlterarTw(name):
@@ -14,6 +14,8 @@ def AlterarTw(name):
             numUTw = 0
             found=0
             i=0
+
+            Orde(numLn)
 
             for ln in numLn:
                 ln = ln.rstrip('\n')
