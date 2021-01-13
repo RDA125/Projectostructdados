@@ -33,7 +33,10 @@ def fn(item,level=0):
             print("%s%s" %(indentation,each_item))
 
 
-numLn=['1-0-Test-test-olá test 1 2 3-0\n','2-1-Test-test-test y-0\n','3-2-Test-test-test 2-0\n','6-2-Test-test-test 4-0\n','4-1-Test-test-test 3-0\n','7-4-Test-test-test 3-0\n','8-1-Test-test-test 3-0\n','5-0-Test-test-test 4-0\n']
+numLn=['\t1-0-Test-test-olá test 1 2 3-0\n','2-1-Test-test-test y-0\n','3-2-Test-test-test 2-0\n','\t6-2-Test-test-test 4-0\n','4-1-Test-test-test 3-0\n','7-4-Test-test-test 3-0\n','8-1-Test-test-test 3-0\n','5-0-Test-test-test 4-0\n']
+numLn.sort()
+print(numLn)
+input()
 def test(numLn,level=0):
 
     for i in range(len(numLn)):

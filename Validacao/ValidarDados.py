@@ -3,6 +3,27 @@ from os import path
 import re
 import unicodedata
 
+def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome dependendo do pedido
+    for i in range(len(numLn)):
+        numLn[i] = numLn[i].rstrip('\n')
+        numLn[i] = numLn[i].strip()
+    #endfor
+
+    if(Nom == True):
+        numLn.sort(key= lambda x: str(x[4]))
+
+    elif(Top == True):
+        numLn.sort(key= lambda x: str(x[9]))
+
+    elif(Lk == True):
+        numLn.sort(key= lambda x: int(x[-1]))
+    else:
+        numLn.sort()
+
+    return numLn
+
+#end
+
 #User specific verf
 
 def Checkfile(fileName):
@@ -142,6 +163,9 @@ def GetName(email,num):
     #endfor
 
 #Tweet specific verf
+
+
+
 
 def CheckfileTw(fileName):
 

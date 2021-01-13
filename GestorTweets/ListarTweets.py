@@ -1,5 +1,5 @@
 from os import system
-from Validacao.ValidarDados import CheckfileTw
+from Validacao.ValidarDados import CheckfileTw, Orde
 import textwrap
 import msvcrt
 
@@ -17,7 +17,7 @@ def ListarTw(fileName):
         f = open(fileName,"w")
         print("<title>Lista Tweets</title>", file=f)
         print ("<table>", file=f)
-        print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:10px; text-align:center}th{width: 40px}</style>", file=f)
+        print ("<style> table,th,td{border: 2px solid black; border-collapse: collapse; padding:10px;}</style>", file=f)
         print("<h1>Lista de Tweets<h1>", file=f)
         print("<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>" % (idtw,nome,tp,tw,lk), file=f)
         print("%-5s  %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
@@ -25,7 +25,7 @@ def ListarTw(fileName):
         for ln in numLn:
             ln = ln.rstrip('\n')
             Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-            print("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (Id,Nome,Tp,Tw,Lk), file=f)
+            print("<tr><td>%s</td><td>%s</td><td>%s</td><td width='200px' max-width='400px'>%s</td><td>%s</td></tr>" % (Id,Nome,Tp,Tw,Lk), file=f)
             print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
         #endfor
 
@@ -33,20 +33,30 @@ def ListarTw(fileName):
         f.close()
 
         while True:
+            try:
+                opc = int(input("\033[1A\n1-organizar\n2-ver Html\n0-Voltar atrás\n\033[K"))
+
+            except ValueError:
+                print('\033[1A'+input("Tem que ser inteiro")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
+                print('\033[3A                            \033[K',end="\r")
             
-            opc = input("\nVer HTML?(s/n) ")
 
-            if((opc != "s" and opc != "S") and (opc != "n" and opc !="N")):
-                print("Opção inválida")
-
+            if(opc == 1):
+                input()
+            elif(opc == 2):
+                system(fileName)
+                system('cls')
+                break
+            elif(opc == 0):
+                system('cls')
+                break
             else:
-                if(opc == "s" or opc == "S"):
-                    system(fileName)
-                    system('cls')
-                    break
-                else:
-                    system('cls')
-                    break
+                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                print('\033[1A                            \033[K',end="\r")
+                print('\033[3A                            \033[K',end="\r")
+            #endif
+        #endwhile
     
     else:
         input("Não existe Valores para serem listados.")
@@ -65,8 +75,9 @@ def ListarUTw(name):
         idtw,idresp,nome,tp,tw,lk = l.split("-")
         print("%-5s %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
+        numLn = Orde(numLn,True) #(list,likes)
+
         for ln in numLn:
-            ln = ln.rstrip('\n')
             Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
             if(name.lower() == Nome.lower()):
