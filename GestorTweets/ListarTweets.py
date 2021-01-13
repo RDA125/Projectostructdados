@@ -43,7 +43,9 @@ def ListarTw(fileName):
             
 
             if(opc == 1):
-                input()
+                
+                input() #ordenar Id Nome topico Like
+
             elif(opc == 2):
                 system(fileName)
                 system('cls')
@@ -75,7 +77,7 @@ def ListarUTw(name):
         idtw,idresp,nome,tp,tw,lk = l.split("-")
         print("%-5s %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
-        numLn = Orde(numLn,True) #(list,likes)
+        numLn = Orde(numLn) #(list,Nome=false,Top=false,likes=false) default = id
 
         for ln in numLn:
             Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
