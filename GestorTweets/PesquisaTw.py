@@ -8,6 +8,7 @@ def PesqTw():
         while True:
             print("Pesquisa de Tweets\n\n")
             opc = -1
+            sLk = -1
             found = 0
 
             f = open("Tweets.txt","r")
@@ -56,7 +57,7 @@ def PesqTw():
                             #endif
                         #endfor
                         if(found == 0):
-                            print("\nNome inserido não foi encontrado")
+                            print("Nome inserido não foi encontrado\n")
                         #endif
                         WaitEnter()
                         break
@@ -88,7 +89,7 @@ def PesqTw():
                             #endif
                         #endfor
                         if(found == 0):
-                            print("\nTópico inserido não foi encontrado")
+                            print("Tópico inserido não foi encontrado\n")
                         #endif
                         WaitEnter()
                         break
@@ -98,6 +99,43 @@ def PesqTw():
                     #endif
                 #endwhile
 
+            elif(opc == 3):
+                while True:
+                    while True:
+                        try:
+                            sLk = int(input("\nInsira Numero de likes: "))
+
+                        except ValueError:
+                            print('\033[1A'+input("Número inválido")+'\033[K',end="\r")
+                            print('\033[1A                            \033[K',end="\r")
+
+                        if(sLk>=0):
+                            break
+                        #endif
+                    #endwhile
+    
+                    Clear()
+                    print("Resultado da pesquisa.")
+
+                    print("%-5s  %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
+
+                    Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+
+                    for ln in numLn:
+                        ln = ln.rstrip('\n')
+                        Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
+
+                        if(int(Lk) >= sLk):
+                            found=1
+                            print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
+                        #endif
+                    #endfor
+                    if(found == 0):
+                        print("Não existe tweets com numero de likes igual ou superior ao valor inserido\n")
+                    #endif
+                    WaitEnter()
+                    break
+                #endwhile
             elif(opc == -1):
                Clear()
 
