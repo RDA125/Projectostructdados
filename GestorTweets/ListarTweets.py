@@ -1,8 +1,52 @@
 from os import system
-from Validacao.ValidarDados import CheckfileTw, Orde
+from Validacao.ValidarDados import CheckfileTw, Orde, UpdateFileTw
 from GestorTweets import RespondeTweet
 import textwrap
 import msvcrt
+
+def GivLike(numLn):
+    while True:
+        print("Aumentar likes\n")
+        i=0
+        found = 0
+        try:
+            sId = int(input("\033[1A\nInsira o Id do Tweet para dar like: \033[K"))
+        except ValueError:
+            sId=-1
+            print('\033[1A'+input("Tem que ser inteiro")+'\033[K',end="\r")
+            print('\033[1A                            \033[K',end="\r")
+            print('\033[3A                            \033[K',end="\r")
+
+        if(sId>0):
+
+            for ln in numLn:
+                ln = ln.split("-")
+
+                if(sId == int(ln[0])):
+                    ln[5]= str(int(ln[5])+1)
+                    ln='-'.join(ln)
+                    ln+='\n'
+                    numLn[i]=ln
+                    UpdateFileTw("tweets.txt",numLn)
+                    return
+                #endif
+                i+=1
+            #endfor
+            if(found == 0):
+                print('\033[1A'+input("Tweet não existe")+'\033[K',end="\r")
+                system('cls')
+            #endif
+
+        elif(sId == -1):
+            system('cls')
+
+        else:
+            print('\033[1A'+input("Id de Tweet inválido")+'\033[K',end="\r")
+            system('cls')
+        #endif
+    #endwhile
+#end        
+
 
 def showOrd(numLn):
     while True:
@@ -99,7 +143,7 @@ def ListarTw(fileName,name=""):
             f.close()
           
             try:
-                opc = int(input("\033[1A\n1-Responder\n2-organizar\n3-ver Html\n0-Voltar atrás\n\033[K"))
+                opc = int(input("\033[1A\n1-Responder\n2-Dar like\n3-organizar\n4-ver Html\n0-Voltar atrás\n\033[K"))
             except ValueError:
                 print('\033[1A'+input("Tem que ser inteiro")+'\033[K',end="\r")
                 system('cls')
@@ -108,11 +152,16 @@ def ListarTw(fileName,name=""):
                 system('cls')
                 RespondeTweet.RespTw(name)
                 opc = -1
-            if(opc == 2):
+
+            elif(opc == 2):
+                system('cls')
+                GivLike(numLn)
+                opc=-1
+            if(opc == 3):
                 system('cls')
                 showOrd(numLn)#ordenar Id Nome topico Like
 
-            elif(opc == 3):
+            elif(opc == 4):
                 system(fileName)
                 system('cls')
                 break

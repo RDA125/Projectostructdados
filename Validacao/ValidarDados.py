@@ -162,10 +162,8 @@ def GetName(email,num):
         #endif
     #endfor
 
+
 #Tweet specific verf
-
-
-
 
 def CheckfileTw(fileName):
 
