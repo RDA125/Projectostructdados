@@ -29,6 +29,12 @@ def ElimTw(name=""):
                     #endif
                 #endfor
             else:
+                for ln in numLn:
+                    ln = ln.rstrip('\n')
+                    Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
+
+                    print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
+                #endfor
                 numUTw = -1
             #endif
 

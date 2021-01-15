@@ -1,5 +1,6 @@
 import os, os.path
 from os import path
+from MenuCreator.CreateMenu import WaitEnter,Clear
 import re
 import unicodedata
 
@@ -263,39 +264,86 @@ def UpdateFileTw(filename,numLn):
     UpdateHtmlTw("Tweets.html")
 #end
 
-def CountTw(numLn,Insert=False,Nom=False,Top=False,Lk=False):
+def GroupTw(numLn,Nom=False,Top=False,Lk=False):
     count=0
 
-    if(Insert):
-        if(Nom):
-            while True:
-                name = print('\nInsira Nome: ')
+    if(Nom):
+        nomes = []
+        print("Numero de Tweets por User\n")
+        
+        Orde(numLn,True)
 
-                if(VerfName(name)):
-                    os.system('cls')
+        for ln in numLn:
+            id,idresp,nome,top,tw,lk = ln.split('-')
+            nomes.append(nome)
+        #endfor
 
-                    for ln in numLn:
-                        ln = ln.rstrip('\n')
-                        ln = ln.strip()
-                        ln = ln.split('-')
+        nomes = list(dict.fromkeys(nomes))#remove nomes repetidos
 
-                        if(name.lower() == ln[2].lower()):
-                            count+=1
-                        #endif
-                    #endfor
-
-                    print("\nResultado a contagem")
-                    if(count == 0):
-                        input(name+"não tem tweets.")
-                        return
-                    else:
-                        input(name+": %d\n",count)
-                        return
-                    #endif
-                else:
-                    input("Nome inválido.")
-                    os.system('cls')
+        for nome in nomes:
+            for ln in numLn:
+                ln = ln.split('-')
+                
+                if(ln[2] == nome):
+                    count+=1
                 #endif
-            #endwhile
-        #endif
+
+            #endfor
+        
+            print(nome,": ",count,"\n")
+            count=0
+        #endfor
+        WaitEnter()
+        return 
+
+    elif(Top):
+        topicos = []
+        print("Numero de Tweets por Tópico\n")
+        
+        Orde(numLn,False,True)
+
+        for ln in numLn:
+            id,idresp,nome,top,tw,lk = ln.split('-')
+            topicos.append(top)
+        #endfor
+
+        topicos = list(dict.fromkeys(topicos))#remove topicos repetidos
+
+        for topico in topicos:
+            for ln in numLn:
+                ln = ln.split('-')
+                
+                if(ln[3] == topico):
+                    count+=1
+                #endif
+
+            #endfor
+        
+            print(topico,": ",count,"\n")
+            count=0
+        #endfor
+        WaitEnter()
+        return 
+    
+    elif(Lk):
+        lks = [0,5,10,25,50,75,100]
+        print("Numero de likes dos tweets superior a: \n")
+        
+        Orde(numLn,False,False,True)
+
+        for lk in lks:
+            for ln in numLn:
+                ln = ln.split('-')
+                
+                if(int(ln[5]) >= lk):
+                    count+=1
+                #endif
+
+            #endfor
+        
+            print(lk,"Likes: ",count,"\n")
+            count=0
+        #endfor
+        WaitEnter()
+        return 
     #endif

@@ -12,12 +12,20 @@ def Login():
         l= f.readline()
         numLn = f.readlines
         name = ""
+        success = -1
+        c = 3
 
         while True:
             admin=0
-            print("Login\n")
-            
+
+            print("Login\n(0-Voltar atrás)\n")
+           
             email = input("Insira email: ")
+
+            if(email == "0"):
+                name = None
+                return name
+            #endif
 
             if(VerfEmail(email)):
                 if(VerfExist(email) or email == "admin@admin.com"):
@@ -25,7 +33,8 @@ def Login():
                         num = int(input("Insira numero: "))
 
                     except ValueError:
-                        input("Número inválido")
+                        c-=1
+                        input("Número inválido. %d Tentativa(s) restante(s)." % c)
                         CreateMenu.Clear()
                         continue
                     
@@ -35,34 +44,42 @@ def Login():
                     #endif
 
                     if(num<1000000 or num>9999999):
-                        input("Número tem que ter 7 digitos")
+                        c-=1
+                        input("Número tem que ter 7 digitos. %d Tentativa(s) restante(s)." % c)
                         CreateMenu.Clear()
 
                     else:
-                    
-                        if(VerfExist(num)):
+                        
+                        if(VerfExist(num) and email != "admin@admin.com"):
                             
                             name = GetName(email,num)
                             break
 
                         else:
-                            input("Número errado")
+                            c-=1
+                            input("Número errado.\n%d Tentativa(s) restante(s)." % c)
                             CreateMenu.Clear() 
                     #endif
                 else:
-                    input("Email não existe.")
+                    input("Email não existe.\n%d Tentativa(s) restante(s)." % c)
                     CreateMenu.Clear()
 
             else:
-                input("Email inválido.")
+                c-=1
+                input("Email inválido.\n%d Tentativa(s) restante(s)." % c)
                 CreateMenu.Clear()
             #endif
+            
+            if(c <= 0):
+                input("Tentativas gastas, tente depois.")
+                return
+            #endif
+            
         #endwhile
 
         if(admin==1):
             CreateMenu.Clear()
             return "admin"
-        
         else:
             return name
         #endif
@@ -121,15 +138,21 @@ def Begin():
             CreateMenu.Clear()
             name = Login()
             CreateMenu.Clear()
-
+            
             if(name == "admin"):
                 MenuPrincipal()
+
+            elif(name == None):
+                CreateMenu.Clear()
+
             else:
                 MenuPrinU(name)
+            #endif
 
         elif opc == 2:#sign
             CreateMenu.Clear()
             InserirU.Inserir()
+        #endif
 
 #end
 

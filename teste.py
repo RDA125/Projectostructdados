@@ -38,29 +38,34 @@ numLn.sort()
 count = 0
 count2 = 0
 count3 = 0
-nomes = ["Test"]
+nomes = []
 i=0
 for ln in numLn:
-        ln = ln.rstrip('\n')
-        ln = ln.strip()
-        id,idresp,nome,top,tw,lk = ln.split('-')
-
-        if(nomes[0] != nome):
-            nomes.append(nome)
+    ln = ln.rstrip('\n')
+    ln = ln.strip()
+    id,idresp,nome,top,tw,lk = ln.split('-')
+    nomes.append(nome)
         
 
 print(nomes)
+input()
+nomes = list(dict.fromkeys(nomes))
+print(nomes)
+input()
 
 for nome in nomes:
     for ln in numLn:
         ln = ln.rstrip('\n')
         ln = ln.strip()
         ln = ln.split('-')
-        count3+=ln.count(nome)
+        
+        if(ln[2] == nome):
+            count3+=1
     
     print(count3)
     count3=0
 
+input()
 for i in range(len(numLn)):
     numLn[i] = numLn[i].rstrip('\n')
     numLn[i] = numLn[i].strip()

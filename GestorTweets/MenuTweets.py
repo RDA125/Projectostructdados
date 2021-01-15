@@ -3,20 +3,28 @@ from GestorTweets import ListarTweets,InserirTweets,AlterarTweets,EliminarTweets
 
 def MenuTwts():
     while True:
-        opc = MenuCreator.CreateMenu.PrintMenu("Menu Tweets",["Eliminar Tweet","Listar Tweets"],2,"Voltar atrás")
+        opc = MenuCreator.CreateMenu.PrintMenu("Menu Tweets",["Eliminar Tweet","Listar Tweets","Pesquisar Tweets","Contar"],4,"Voltar atrás")
 
-        if opc == 0:
+        if(opc == 0):
             MenuCreator.CreateMenu.Clear()
             break
 
-        elif opc == 1:#Eliminar tweets
+        elif (opc == 1):#Eliminar tweets
             MenuCreator.CreateMenu.Clear()
             EliminarTweets.ElimTw()
+            ListarTweets.ListarUTw()
 
-        elif opc == 2: #listar tweets
+        elif (opc == 2): #listar tweets
             MenuCreator.CreateMenu.Clear()
             ListarTweets.ListarTw("Tweets.html")
+        
+        elif(opc == 3):
+            MenuCreator.CreateMenu.Clear()
+            PesquisaTw.PesqTw()
 
+        elif(opc == 4):
+            MenuCreator.CreateMenu.Clear()
+            PesquisaTw.CountTw()
 #end
 
 #menu user inserir/alterar/eliminar/listar os seus tweets
@@ -53,7 +61,7 @@ def MenuTwU(name):
             MenuCreator.CreateMenu.Clear()
             PesquisaTw.PesqTw()
         
-        elif (opc == 7):
+        elif (opc == 7):#contar e agrupar
             MenuCreator.CreateMenu.Clear()
             PesquisaTw.CountTw()
 

@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,VerfName,UpdateHtmlTw,UpdateFileTw, Orde
+from Validacao.ValidarDados import CheckfileTw,VerfName,UpdateHtmlTw,UpdateFileTw,Orde,GroupTw
 from MenuCreator.CreateMenu import Clear,WaitEnter,PrintMenu
 import re
 
@@ -153,7 +153,7 @@ def CountTw():
             
             idtw,idresp,nome,tp,tw,lk = l.split("-")
 
-            opc = PrintMenu("Contagem de Tweets",["Nome","Tópico","Número de Likes"],3,"Voltar atrás")
+            opc = PrintMenu("Contagem de Tweets",["Nome","Tópico","Número de Likes","Agrupar"],4,"Voltar atrás")
             
             if(opc == 0):
                 Clear()
@@ -262,6 +262,31 @@ def CountTw():
                     WaitEnter()
                     break
                 #endwhile
+
+            elif(opc == 4):
+                Clear()
+                while True:
+                    op = PrintMenu("Agrupar por:",["Nome","Tópico","Número de Likes"],3,"Voltar atrás")
+
+                    if(op == 0):
+                        Clear()
+                        break
+                        
+                    elif(op == 1):
+                        Clear()
+                        GroupTw(numLn,True)
+                    
+                    elif(op == 2):
+                        Clear()
+                        GroupTw(numLn,False,True)
+                    
+                    elif(op == 3):
+                        Clear()
+                        GroupTw(numLn,False,False,True)
+
+
+                    #endif
+
             elif(opc == -1):
                Clear()
 

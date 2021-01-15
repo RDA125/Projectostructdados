@@ -124,40 +124,58 @@ def ListarTw(fileName,name=""):
                
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endfor
+            
+            if(name != ""):
+                opc = PrintMenu("Listagem dos Tweets",["Responder","Dar like","Organizar","Ver Html"],4,"Voltar atrás")
 
-            opc = PrintMenu("Listagem dos Tweets",["Responder","Dar like","Organizar","Ver Html"],4,"Voltar atrás")
+                if(opc == 1):
+                    Clear()
+                    RespondeTweet.RespTw(name)
+                    opc = -1
 
-            if(opc == 1):
-                Clear()
-                RespondeTweet.RespTw(name)
-                opc = -1
+                elif(opc == 2):
+                    Clear()
+                    GivLike(numLn)
+                    opc=-1
+                elif(opc == 3):
+                    Clear()
+                    showOrd(numLn)#ordenar Id Nome topico Like
 
-            elif(opc == 2):
-                Clear()
-                GivLike(numLn)
-                opc=-1
-            if(opc == 3):
-                Clear()
-                showOrd(numLn)#ordenar Id Nome topico Like
-
-            elif(opc == 4):
-                system(fileName)
-                Clear()
-                break
-            elif(opc == 0):
-                Clear()
-                break
+                elif(opc == 4):
+                    system(fileName)
+                    Clear()
+                    break
+                elif(opc == 0):
+                    Clear()
+                    break
+                else:
+                    Clear()
+                #endif
+            
             else:
-                Clear()
-            #endif
+                opc = PrintMenu("Listagem dos Tweets",["Organizar","Ver Html"],2,"Voltar atrás")
+
+                if(opc == 1):
+                    Clear()
+                    showOrd(numLn)
+
+                elif(opc == 2):
+                    system(fileName)
+                    Clear()
+                    break
+                elif(opc == 0):
+                    Clear()
+                    break
+                else:
+                    Clear()
+                #endif
         #endwhile
-    
     else:
         input("Não existe Valores para serem listados.")
         Clear()
     #endif
 
-def ListarUTw(name):
+def ListarUTw(name=""):
     if(CheckfileTw("tweets.txt")):
         print("Listagem dos Tweets\n")
 
@@ -169,15 +187,21 @@ def ListarUTw(name):
         idtw,idresp,nome,tp,tw,lk = l.split("-")
         print("%-5s %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
-        numLn = Orde(numLn) #(list,Nome=false,Top=false,likes=false) default = id
+        Orde(numLn) #(list,Nome=false,Top=false,likes=false) default = id
+        if(name != ""):
+            for ln in numLn:
+                Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
-        for ln in numLn:
-            Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-
-            if(name.lower() == Nome.lower()):
+                if(name.lower() == Nome.lower()):
+                    print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
+                #endif
+            #endfor
+        else:
+            for ln in numLn:
+                Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
-            #endif
-        #endfor
+            #endfor
+        #endif
 
         input("\nPrima enter....")
         Clear()
