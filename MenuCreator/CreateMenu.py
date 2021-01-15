@@ -33,13 +33,13 @@ def PrintMenu(Title, opcs, numOpc, exitmsg=''):
         except ValueError:
             input("Opção tem que ser um valor inteiro.")
             Clear()
-
-            continue
+            return
         #end
 
         if(opc<0 or opc>numOpc):
             input("Opção não existe.")
             Clear()
+            return
         else:
             break
         #endif

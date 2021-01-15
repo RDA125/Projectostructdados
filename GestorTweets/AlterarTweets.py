@@ -1,5 +1,5 @@
 from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateFileTw,Orde
-from MenuCreator.CreateMenu import Clear,WaitEnter
+from MenuCreator.CreateMenu import Clear,WaitEnter,PrintMenu
 
 def AlterarTw(name):
 
@@ -22,7 +22,7 @@ def AlterarTw(name):
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                 if(name.lower() == Nome.lower()):
-                    print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                    print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
                     numUTw+=1
                 #endif
             #endfor
@@ -52,16 +52,12 @@ def AlterarTw(name):
                     
                     if(str(sId) == ln[0]):
                         found=1
-                        Id,idResp,Nome,Tp,Tw,Lk = ln
-                        print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
-                        print('Alterar:\n 1-Tópico\n 2-Tweet\n 0-abortar')
-
+                        Clear()
                         while True:
-                            try:
-                                op = int(input())
-                            except ValueError:
-                                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                                print('\033[1A                            \033[K',end="\r")
+                            Id,idResp,Nome,Tp,Tw,Lk = ln
+                            print("\n%-5s %-5s %-5s \"%s\" - %s\n" % (Id,Nome,Tp,Tw,Lk))
+
+                            op = PrintMenu("Alterar",["Tópico","Tweet"],2,"Abortar")
                             
                             if(op == 1):
                                 while True:
@@ -76,7 +72,7 @@ def AlterarTw(name):
                                             break
                                         #endif
                                     else:
-                                        print('\033[1A'+input("Tópicoinválido.")+'\033[K',end="\r")
+                                        print('\033[1A'+input("Tópico inválido.")+'\033[K',end="\r")
                                         print('\033[1A                            \033[K',end="\r")
                                     #endif
                                 #endwhile
@@ -105,14 +101,8 @@ def AlterarTw(name):
                                 found = -1
                                 break
 
-                            else:
-                                found = -5
-                                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                                print('\033[1A                            \033[K',end="\r")
                             #endif
                         #endwhile
-                        if(found != -5):
-                            break
                     #endif
                     i+=1
                 #endfor

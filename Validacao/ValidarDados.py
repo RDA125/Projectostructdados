@@ -9,19 +9,18 @@ def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome default
         numLn[i] = numLn[i].strip()
     #endfor
 
-    if(Nom == True):
+    if(Nom):
         numLn.sort(key= lambda x: str(x[4]))
 
-    elif(Top == True):
+    elif(Top):
         numLn.sort(key= lambda x: str(x[9]))
 
-    elif(Lk == True):
+    elif(Lk):
         numLn.sort(key= lambda x: int(x[-1]),reverse=True)
     else:
         numLn.sort()
 
     return numLn
-
 #end
 
 #User specific verf
@@ -262,3 +261,41 @@ def UpdateFileTw(filename,numLn):
     f.close
 
     UpdateHtmlTw("Tweets.html")
+#end
+
+def CountTw(numLn,Insert=False,Nom=False,Top=False,Lk=False):
+    count=0
+
+    if(Insert):
+        if(Nom):
+            while True:
+                name = print('\nInsira Nome: ')
+
+                if(VerfName(name)):
+                    os.system('cls')
+
+                    for ln in numLn:
+                        ln = ln.rstrip('\n')
+                        ln = ln.strip()
+                        ln = ln.split('-')
+
+                        if(name.lower() == ln[2].lower()):
+                            count+=1
+                        #endif
+                    #endfor
+
+                    print("\nResultado a contagem")
+                    if(count == 0):
+                        input(name+"não tem tweets.")
+                        return
+                    else:
+                        input(name+": %d\n",count)
+                        return
+                    #endif
+                else:
+                    input("Nome inválido.")
+                    os.system('cls')
+                #endif
+            #endwhile
+        #endif
+    #endif

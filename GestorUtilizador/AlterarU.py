@@ -43,7 +43,9 @@ def Alterar(name =""):
                     found=1
                     Nome,Email,Num,Telefone,Oper = ln
                     print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
+
                     print('Alterar:\n 1-Nome\n 2-Email\n 3-Número\n 4-Telefone\n 5-Operadora\n 0-abortar')
+                    
                     while True:
                         try:
                             op = int(input())
