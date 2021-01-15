@@ -24,7 +24,7 @@ def ElimTw(name=""):
                     Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                     if(name.lower() == Nome.lower()):
-                        print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                        print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
                         numUTw+=1
                     #endif
                 #endfor
@@ -40,8 +40,9 @@ def ElimTw(name=""):
                         print('\033[1A'+input("Id inválido")+'\033[K',end="\r")
                         print('\033[1A                            \033[K',end="\r")
 
-                    finally:
+                    if(sId>=0):
                         break
+                    #endif
                 #endwhile
 
                 if(sId == 0):
@@ -56,7 +57,7 @@ def ElimTw(name=""):
                     if(str(sId) in ln[0]):
                         found=1
                         Id,idResp,Nome,Tp,Tw,Lk = ln
-                        print("%-20s %-20s %-20s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                        print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
 
                         op= input('Tem a certeza que deseja eliminar este Tweet(s/n)?')
 

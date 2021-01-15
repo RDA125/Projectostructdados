@@ -64,7 +64,7 @@ def showOrd(numLn):
             Orde(numLn)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
             input("Prima enter...")
             system('cls')
@@ -75,7 +75,7 @@ def showOrd(numLn):
             Orde(numLn,True)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
             input("Prima enter...")
             system('cls')
@@ -86,7 +86,7 @@ def showOrd(numLn):
             Orde(numLn,False,True)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
             input("Prima enter...")
             system('cls')
@@ -97,7 +97,7 @@ def showOrd(numLn):
             Orde(numLn,False,False,True)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
-                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
             input("Prima enter...")
             system('cls')
@@ -136,7 +136,7 @@ def ListarTw(fileName,name=""):
                 ln = ln.rstrip('\n')
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("<tr><td>%s</td><td>%s</td><td>%s</td><td width='200px' max-width='400px'>%s</td><td>%s</td></tr>" % (Id,Nome,Tp,Tw,Lk), file=f)
-                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endfor
 
             print("</table>",file=f)
@@ -202,25 +202,12 @@ def ListarUTw(name):
             Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
             if(name.lower() == Nome.lower()):
-                print("%-5s %-5s %-5s %s - %s" % (Id,Nome,Tp,Tw,Lk))
+                print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endif
         #endfor
 
-        while True:
-            try:
-                opc = int(input("\n0-Voltar atrás\n"))
-            except ValueError:
-                print('\033[1A'+input("Tem que ser inteiro")+'\033[K',end="\r")
-                print('\033[1A                            \033[K',end="\r")
-
-            if(opc != 0):
-                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                print('\033[1A                            \033[K',end="\r")
-            else:
-                system('cls')
-                break
-            #endif
-        #endwhile
+        input("\nPrima enter....")
+        system('cls')
     else:
         input("Não tem tweets para listar")
         system('cls')

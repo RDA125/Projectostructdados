@@ -39,13 +39,13 @@ def InserirTw(name):
         #endif
 
     while True:
-        tw = input('Insira Tweet[250char]: ')
+        tw = input('Insira Tweet[280char]: ')
 
         if(VerfTweet(tw)):
             break
 
         else:
-            print('\033[1A'+input("Tweet tem de ter pelo menos um character com um máximo de 250.")+'\033[K',end="\r")
+            print('\033[1A'+input("Tweet tem de ter pelo menos um character com um máximo de 280.")+'\033[K',end="\r")
             print('\033[1A                            \033[K',end="\r")
         #endif
     #endwhile

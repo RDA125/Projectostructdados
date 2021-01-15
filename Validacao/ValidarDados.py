@@ -198,7 +198,7 @@ def CheckfileTw(fileName):
 def VerfTweet(tweet):
     TwLen = len(tweet)
 
-    if(TwLen<= 0 or TwLen>250):
+    if(TwLen<= 0 or TwLen>280):
         return False
     else:
         return True
