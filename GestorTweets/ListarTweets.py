@@ -107,6 +107,7 @@ def showOrd(numLn):
 def ListarTw(fileName,name=""):
     if(CheckfileTw("tweets.txt")):
         while True:
+            print("Listagem dos Tweets\n")
             opc=-1
 
             f = open("Tweets.txt","r")
@@ -124,9 +125,11 @@ def ListarTw(fileName,name=""):
                
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endfor
+            print("\n")
             
             if(name != ""):
-                opc = PrintMenu("Listagem dos Tweets",["Responder","Dar like","Organizar","Ver Html"],4,"Voltar atrás")
+               
+                opc = PrintMenu("",["Responder","Dar like","Organizar","Ver Html"],4,"Voltar atrás")
 
                 if(opc == 1):
                     Clear()
@@ -153,7 +156,7 @@ def ListarTw(fileName,name=""):
                 #endif
             
             else:
-                opc = PrintMenu("Listagem dos Tweets",["Organizar","Ver Html"],2,"Voltar atrás")
+                opc = PrintMenu("",["Organizar","Ver Html"],2,"Voltar atrás")
 
                 if(opc == 1):
                     Clear()

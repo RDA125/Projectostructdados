@@ -4,7 +4,7 @@ from MenuCreator.CreateMenu import WaitEnter,Clear
 import re
 import unicodedata
 
-def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome default
+def Orde(numLn,Nom=False,Top=False,Lk=False,Oper=False): #ordena por id ou nome default
     for i in range(len(numLn)):
         numLn[i] = numLn[i].rstrip('\n')
         numLn[i] = numLn[i].strip()
@@ -18,6 +18,10 @@ def Orde(numLn,Nom=False,Top=False,Lk=False): #ordena por id ou nome default
 
     elif(Lk):
         numLn.sort(key= lambda x: int(x[-1]),reverse=True)
+
+    elif(Oper):
+        numLn.sort(key= lambda x: str(x[-8]))
+    
     else:
         numLn.sort()
 
