@@ -30,7 +30,7 @@ def AlterarTw(name):
             if(numUTw != 0):
                 while True:
                     try:
-                        sId = int(input("Insira Id do Tweet que deseja Alterar os Dados(0-voltar atrás): "))
+                        sId = int(input("\nInsira Id do Tweet que deseja Alterar os Dados(0-voltar atrás): "))
                     except ValueError:
                         print('\033[1A'+input("Id inválido")+'\033[K',end="\r")
                         print('\033[1A                            \033[K',end="\r")
@@ -50,7 +50,7 @@ def AlterarTw(name):
                     ln = ln.split("-")
 
                     
-                    if(str(sId) == ln[0]):
+                    if(str(sId) == ln[0] and name == ln[2]):
                         found=1
                         Clear()
                         while True:
