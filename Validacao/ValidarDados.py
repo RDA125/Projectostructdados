@@ -163,6 +163,62 @@ def GetName(email,num):
     #endfor
 
 
+def GroupUtil(numLn,Nom=False,Oper=False):
+    count=0
+
+    if(Nom):
+        nomes = []
+        print("Agrupado por Nomes\n")
+        
+        Orde(numLn)
+
+        for ln in numLn:
+            nome,email,num,tel,oper = ln.split('-')
+            nomes.append(nome)
+        #endfor
+
+        nomes = list(dict.fromkeys(nomes))#remove nomes repetidos
+
+        for nome in nomes:
+            for ln in numLn:
+                ln = ln.split('-')
+                aux = re.compile(nome)
+                
+                if(aux.search(ln[0])):
+                    count+=1
+                #endif
+            #endfor
+        
+            print(nome,": ",count,"\n")
+            count=0
+        #endfor
+        WaitEnter()
+        return 
+
+    elif(Oper):
+        OperTel = ['NOS','VODAFONE','MEO','NOWO']
+        print("Numero de Utilizadores por Operadora\n")
+        
+        Orde(numLn)
+
+        for OpTl in OperTel:
+            for ln in numLn:
+                ln = ln.split('-')
+                
+                if(ln[4] == OpTl):
+                    count+=1
+                #endif
+
+            #endfor
+        
+            print(OpTl,": ",count,"\n")
+            count=0
+        #endfor
+        WaitEnter()
+        return 
+    #endif
+
+
 #Tweet specific verf
 
 def CheckfileTw(fileName):

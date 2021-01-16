@@ -1,9 +1,9 @@
 import MenuCreator.CreateMenu 
-from GestorUtilizador import ListarUtilz,InserirU,AlterarU,EliminarU
+from GestorUtilizador import ListarUtilz,InserirU,AlterarU,EliminarU,PesquisaU
 
 def MenuUtilz():
     while True:
-        opc = MenuCreator.CreateMenu.PrintMenu("Menu Utilizador",["Inserir Util.","Alterar util.","Eliminar Util.","Listar Utilizadores"],4,"Voltar atrás")
+        opc = MenuCreator.CreateMenu.PrintMenu("Menu Utilizador",["Inserir Util.","Alterar util.","Eliminar Util.","Listar Utilizadores","Pesquisar Util.","Contar"],6,"Voltar atrás")
 
         if (opc == 0):
             MenuCreator.CreateMenu.Clear()
@@ -24,6 +24,14 @@ def MenuUtilz():
         elif (opc == 4): #listar Utilizadores
             MenuCreator.CreateMenu.Clear()
             ListarUtilz.ListarU("Users.html")
+        
+        elif (opc == 5): #pesquisar Utilizadores
+            MenuCreator.CreateMenu.Clear()
+            PesquisaU.PesqUtil()
+        
+        elif (opc == 6): #contar e agrupar Utilizadores
+            MenuCreator.CreateMenu.Clear()
+            PesquisaU.CountU()
 
 #end
 

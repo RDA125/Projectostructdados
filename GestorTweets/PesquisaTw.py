@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,VerfName,UpdateHtmlTw,UpdateFileTw,Orde,GroupTw
+from Validacao.ValidarDados import CheckfileTw,VerfName,Orde,GroupTw
 from MenuCreator.CreateMenu import Clear,WaitEnter,PrintMenu
 import re
 
@@ -47,6 +47,7 @@ def PesqTw():
                         if(found == 0):
                             print("Nome inserido não foi encontrado\n")
                         #endif
+                        print("\n")
                         WaitEnter()
                         break
                     else:
@@ -79,6 +80,7 @@ def PesqTw():
                         if(found == 0):
                             print("Tópico inserido não foi encontrado\n")
                         #endif
+                        print("\n")
                         WaitEnter()
                         break
                     else:
@@ -121,15 +123,13 @@ def PesqTw():
                     if(found == 0):
                         print("Não existe tweets com numero de likes igual ou superior ao valor inserido\n")
                     #endif
+                    print("\n")
                     WaitEnter()
                     break
                 #endwhile
             elif(opc == -1):
                Clear()
 
-            else:
-                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                Clear()
             #endif
     else:
         input("Não existe Valores para serem pesquisados.")
@@ -284,15 +284,11 @@ def CountTw():
                         Clear()
                         GroupTw(numLn,False,False,True)
 
-
                     #endif
 
             elif(opc == -1):
                Clear()
 
-            else:
-                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                Clear()
             #endif
     else:
         input("Não existe Valores para serem pesquisados.")
