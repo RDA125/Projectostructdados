@@ -117,7 +117,7 @@ def CountU():
             
             nom,email,num,tel,oper = l.split("-")
 
-            opc = PrintMenu("Contagem de Tweets",["Nome","Operadora","Agrupar"],3,"Voltar atrás")
+            opc = PrintMenu("Contagem de Utilizadores",["Nome","Operadora","Agrupar"],3,"Voltar atrás")
             
             if(opc == 0):
                 Clear()
@@ -125,11 +125,11 @@ def CountU():
             
             elif(opc == 1):
                 while True:
-                    sname = input("\nInsira o nome para contagem: ").lower
-            
+                    sname = input("\nInsira o nome para contagem: ").lower()
+                   
                     if(VerfName(sname)):
                         Clear()
-                        print("Resultado da contagem para Utilizadores com o mesmo Nome iniciado com\n")
+                        print("Resultado da contagem para Utilizadores com o mesmo Nome\n")
 
                         Orde(numLn,True)
 

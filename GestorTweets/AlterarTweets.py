@@ -32,6 +32,7 @@ def AlterarTw(name):
                 try:
                     sId = int(input("\nInsira Id do Tweet que deseja Alterar os Dados(0-voltar atrás): "))
                 except ValueError:
+                    found = -2
                     print('\033[1A'+input("Id inválido")+'\033[K',end="\r")
                     print('\033[1A                            \033[K',end="\r")
 
@@ -42,7 +43,6 @@ def AlterarTw(name):
                 
                 else:
                     op = -1
-                    found = -2
                 #endif
 
                 for ln in numLn:
@@ -112,7 +112,7 @@ def AlterarTw(name):
                     input("Tweet não existe")
                     Clear()
 
-                elif(found == -2):
+                if(found == -2):
                     Clear()
                 
                 else:
@@ -120,23 +120,37 @@ def AlterarTw(name):
                     if(found == 1):
 
                         UpdateFileTw("tweets.txt",numLn)
-                        op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
+                        
+                        while True:
+                            op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
+
+                            if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                                print('\033[2A                            \033[K',end="\r")
+                            else:
+                                break
+                            #endif
+                        #endwhile
 
                     elif(found == -1):
-                        op = input("Deseja alterar mais?(s/n)\n")
+                        while True:
+                            op = input("Deseja alterar mais?(s/n)\n")
+
+                            if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                                print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                                print('\033[2A                            \033[K',end="\r")
+                            else:
+                                break
+                            #endif
+                        #endwhile
                     #endif
 
-                    if((op != "s" and op != "S") and (op != "n" and op !="N")):
-                        print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                        print('\033[1A                            \033[K',end="\r")
+                    if(op != "s" and op != "S"):
+                        Clear()
+                        break
                     else:
-                        if(op != "s" and op != "S"):
-                            Clear()
-                            break
-                        else:
-                            op=0
-                            Clear()
-                        #endif
+                        op=0
+                        Clear()
                     #endif
                 #endif
 

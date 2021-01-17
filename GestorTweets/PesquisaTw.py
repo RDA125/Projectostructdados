@@ -97,7 +97,7 @@ def PesqTw():
 
                         except ValueError:
                             print('\033[1A'+input("Número inválido")+'\033[K',end="\r")
-                            print('\033[1A                            \033[K',end="\r")
+                            print('\033[2A                            \033[K',end="\r")
 
                         if(sLk>=0):
                             break

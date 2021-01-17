@@ -12,7 +12,6 @@ def MenuTwts():
         elif (opc == 1):#Eliminar tweets
             MenuCreator.CreateMenu.Clear()
             EliminarTweets.ElimTw()
-            ListarTweets.ListarUTw()
 
         elif (opc == 2): #listar tweets
             MenuCreator.CreateMenu.Clear()
@@ -51,7 +50,6 @@ def MenuTwU(name):
         elif (opc == 4):#Eliminar tweet
             MenuCreator.CreateMenu.Clear()
             EliminarTweets.ElimTw(name)
-            ListarTweets.ListarUTw(name)
 
         elif (opc == 5):#Listar tweet de util.
             MenuCreator.CreateMenu.Clear()

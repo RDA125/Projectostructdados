@@ -1,5 +1,5 @@
 from Validacao.ValidarDados import Checkfile,VerfName,VerfEmail,VerfExist,VerfOper,UpdateFile
-from MenuCreator.CreateMenu import Clear,WaitEnter
+from MenuCreator.CreateMenu import Clear,WaitEnter,PrintMenu
 
 def Alterar(name =""):
 
@@ -28,7 +28,7 @@ def Alterar(name =""):
 
                     else:
                         print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                        print('\033[2A                            \033[K',end="\r")
+                        print('\033[1A                            \033[K',end="\r")
                     #endif
                 else:
                     sname = name
@@ -41,16 +41,12 @@ def Alterar(name =""):
 
                 if(str(sname.lower()) == ln[0].lower()):
                     found=1
-                    Nome,Email,Num,Telefone,Oper = ln
-                    print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
-
-                    print('Alterar:\n 1-Nome\n 2-Email\n 3-Número\n 4-Telefone\n 5-Operadora\n 0-abortar')
-                    
+                   
                     while True:
-                        try:
-                            op = int(input())
-                        except ValueError:
-                            op = -1
+                        Nome,Email,Num,Telefone,Oper = ln
+                        print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
+
+                        op = PrintMenu("Alterar",["Nome","Email","Número","Telefone","Operadora"],5,"abortar")
                             
                         
                         if(op == 1):
@@ -177,7 +173,7 @@ def Alterar(name =""):
 
                                 else:
                                     print('\033[1A'+input("Operadora inválida.")+'\033[K',end="\r")
-                                    print('\033[2A                                                                      \033[K',end="\r")
+                                    print('\033[2A                               \033[K',end="\r")
                                 #endif
                             #endwhile
                             break
@@ -189,7 +185,7 @@ def Alterar(name =""):
                         elif(op == -1):
                             found = -5
                             print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                            print('\033[1A                            \033[K',end="\r")
+                            print('\033[2A                            \033[K',end="\r")
                         #endif
                     #endwhile
                     if(found != -5):
@@ -207,23 +203,36 @@ def Alterar(name =""):
                 if(found == 1):
 
                     UpdateFile("users.txt",numLn)
-                    op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
+                    while True:
+                        op = input("Valor alterado com sucesso\nDeseja alterar mais?(s/n)\n")
+
+                        if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[2A                            \033[K',end="\r")
+                        else:
+                            break
+                        #endif
+                    #endwhile
 
                 elif(found == -1):
-                    op = input("Deseja alterar mais?(s/n)\n")
+                    while True:
+                        op = input("Deseja alterar mais?(s/n)\n")
+
+                        if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[2A                            \033[K',end="\r")
+                        else:
+                            break
+                        #endif
+                    #endwhile
                 #endif
 
-                if((op != "s" and op != "S") and (op != "n" and op !="N")):
-                    print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                    print('\033[1A                            \033[K',end="\r")
+                if(op != "s" and op != "S"):
+                    Clear()
+                    return name
                 else:
-                    if(op != "s" and op != "S"):
-                        Clear()
-                        return name
-                    else:
-                        op=0
-                        Clear()
-                    #endif
+                    op=0
+                    Clear()
                 #endif
             #endif
         #endwhile

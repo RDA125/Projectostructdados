@@ -18,6 +18,7 @@ def showOrdU(numLn):
                 print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
             #endfor
 
+            print("\n")
             input("Prima enter...")
             Clear()
 
@@ -31,6 +32,7 @@ def showOrdU(numLn):
                 print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
             #endfor
 
+            print("\n")
             input("Prima enter...")
             Clear()
 
@@ -71,7 +73,7 @@ def ListarU(fileName):
             print("</table>",file=f)
             f.close()
             
-            opc = PrintMenu("",["Organizar","Ver Html"],2,"Voltar atrás")
+            opc = PrintMenu(" ",["Organizar","Ver Html"],2,"Voltar atrás")
 
             if(opc == 1):
                 Clear()
@@ -91,6 +93,31 @@ def ListarU(fileName):
                 Clear()
             #endif
         #endwhile
+
+    else:
+        input("Não existe Valores para serem listados.")
+        system('cls')
+    #endif
+
+def Listar():
+    if(Checkfile("users.txt")):
+       
+        print("Listagem dos Utilizadores\n")
+        f = open("users.txt","r")
+        l = f.readline() #cabeçalho
+        numLn = f.readlines() #informação na lista numLn
+        f.close
+        
+        nome,email,num,tel,oper = l.split("-")
+        print("%-20s %-20s %-20s %-20s %s" % (nome, email, num, tel, oper))
+        for ln in numLn:
+            ln = ln.rstrip('\n')
+            Nome,Email,Num,Telefone,Oper = ln.split("-")
+            print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
+        #endfor
+            
+        input("\nPrima enter....")
+        Clear()
 
     else:
         input("Não existe Valores para serem listados.")

@@ -62,6 +62,7 @@ def showOrd(numLn):
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
+            print("\n")
             input("Prima enter...")
             Clear()
 
@@ -73,6 +74,7 @@ def showOrd(numLn):
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
+            print("\n")
             input("Prima enter...")
             Clear()
 
@@ -84,6 +86,7 @@ def showOrd(numLn):
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
+            print("\n")
             input("Prima enter...")
             Clear()
 
@@ -95,6 +98,7 @@ def showOrd(numLn):
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
             #endf
+            print("\n")
             input("Prima enter...")
             Clear()
 
@@ -140,6 +144,7 @@ def ListarTw(fileName,name=""):
                     Clear()
                     GivLike(numLn)
                     opc=-1
+
                 elif(opc == 3):
                     Clear()
                     showOrd(numLn)#ordenar Id Nome topico Like
@@ -148,6 +153,7 @@ def ListarTw(fileName,name=""):
                     system(fileName)
                     Clear()
                     break
+
                 elif(opc == 0):
                     Clear()
                     break

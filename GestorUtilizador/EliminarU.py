@@ -27,7 +27,7 @@ def Elim():
 
                 else:
                     print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                    print('\033[2A                            \033[K',end="\r")
+                    print('\033[1A                            \033[K',end="\r")
                 #endif
             #endwhile
 
@@ -40,24 +40,29 @@ def Elim():
                     found=1
                     Nome,Email,Num,Telefone,Oper = ln
                     print("%-20s %-20s %-20s %-20s %s\n\n" % (Nome,Email,Num,Telefone,Oper))
-
-                    op= input('Tem a certeza que deseja eliminar este Utilizador(s/n)?')
-
-                    if((op != "s" and op != "S") and (op != "n" and op !="N")):
-                        print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                        print('\033[1A                            \033[K',end="\r")
                     
-                    else:
-                        if(op != "s" and op != "S"):
-                            found = -1
-                            break
-                                   
+                    while True:
+                        op= input('Tem a certeza que deseja eliminar este Utilizador(s/n)?')
+                        
+                        if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[1A                            \033[K',end="\r")
+                        
                         else:
-                            ln='-'.join(ln)
-                            ln+='\n'
-                            numLn.remove(ln)
                             break
                         #endif
+                    #endwhile
+
+                    if(op != "s" and op != "S"):
+                        found = -1
+                        break
+                               
+                    else:
+                        ln='-'.join(ln)
+                        ln+='\n'
+                        numLn.remove(ln)
+                        break
+                    #endif
                        
                 #endif
                 i+=1
@@ -71,29 +76,44 @@ def Elim():
                 if(found == 1):
 
                     UpdateFile("users.txt",numLn)
-                    op = input("Utilizador eliminado com sucesso\nDeseja Eliminar mais?(s/n)\n")
-
+                    
+                    while True:
+                        op = input("Utilizador eliminado com sucesso\nDeseja Eliminar mais?(s/n)\n")
+                        
+                        if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[3A                            \033[K',end="\r")
+                        
+                        else:
+                            break
+                        #endif
+                    #endwhile
                 else:
-                    op = input("Deseja Eliminar outro Utilizador?(s/n)\n")
+                   
+                    while True:
+                        op = input("Deseja Eliminar outro Utilizador?(s/n)\n")
+                        
+                        if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
+                            print('\033[2A                            \033[K',end="\r")
+                        
+                        else:
+                            break
+                        #endif
+                    #endwhile
                 #endif
 
-                if((op != "s" and op != "S") and (op != "n" and op !="N")):
-                    print("Opção inválida")
-                
-                else:
-                    if(op != "s" and op != "S"):
-
-                        if(found == 1):
-                            Clear()
-                            ListarUtilz.ListarU("Users.html")
-                            break
-                        else:
-                            Clear()
-                            break
-                    else:
-                        op=0
+                if(op != "s" and op != "S"):
+                    if(found == 1):
                         Clear()
-                    #endif
+                        ListarUtilz.Listar()
+                        break
+                    else:
+                        Clear()
+                        break
+                else:
+                    op=0
+                    Clear()
                 #endif
             #endif
         #endwhile

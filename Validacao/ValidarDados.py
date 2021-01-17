@@ -180,7 +180,6 @@ def GetName(email,num):
     #endif
 
 
-
 def GroupUtil(numLn,Nom=False,Oper=False):
     count=0
 
