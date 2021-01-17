@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,UpdateFileTw,Orde
+from Validacao.ValidarDados import CheckfileTw,UpdateFileTw
 from MenuCreator.CreateMenu import Clear,WaitEnter
 from GestorTweets import ListarTweets
 
@@ -16,11 +16,11 @@ def ElimTw(name=""):
             found=0
             i=0
 
-           
-            Orde(numLn)
+            
             if(name != ""):
                 for ln in numLn:
                     ln = ln.rstrip('\n')
+                    ln = ln.strip()
                     Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                     if(name.lower() == Nome.lower()):

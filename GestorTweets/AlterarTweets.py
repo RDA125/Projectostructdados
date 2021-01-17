@@ -1,4 +1,4 @@
-from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateFileTw,Orde
+from Validacao.ValidarDados import CheckfileTw,VerfName,VerfTweet,UpdateFileTw
 from MenuCreator.CreateMenu import Clear,WaitEnter,PrintMenu
 
 def AlterarTw(name):
@@ -16,10 +16,9 @@ def AlterarTw(name):
             sId = -1
             i=0
 
-            Orde(numLn)
-
             for ln in numLn:
                 ln = ln.rstrip('\n')
+                ln = ln.strip()
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
 
                 if(name.lower() == Nome.lower()):
