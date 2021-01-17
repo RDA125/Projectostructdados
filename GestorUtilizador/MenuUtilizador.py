@@ -45,7 +45,7 @@ def MenuUTw(name):
 
         elif (opc == 1):#Alterar dados de utilizador
             MenuCreator.CreateMenu.Clear()
-            AlterarU.Alterar(name)
+            name = AlterarU.Alterar(name)
 
         elif (opc == 2):#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()

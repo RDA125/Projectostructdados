@@ -4,26 +4,34 @@ from MenuCreator.CreateMenu import WaitEnter,Clear
 import re
 import unicodedata
 
-def Orde(numLn,Nom=False,Top=False,Lk=False,Oper=False): #ordena por id ou nome default
+def Orde(numLn,User=False,Nom=False,Top=False,Lk=False,Oper=False): #ordena por id
     for i in range(len(numLn)):
         numLn[i] = numLn[i].rstrip('\n')
         numLn[i] = numLn[i].strip()
+        numLn[i] = numLn[i].split('-')
     #endfor
 
     if(Nom):
-        numLn.sort(key= lambda x: str(x[4]))
+        numLn.sort(key= lambda x: str(x[2]))
 
     elif(Top):
-        numLn.sort(key= lambda x: str(x[9]))
+        numLn.sort(key= lambda x: str(x[3]))
 
     elif(Lk):
         numLn.sort(key= lambda x: int(x[-1]),reverse=True)
 
     elif(Oper):
-        numLn.sort(key= lambda x: str(x[-8]))
+        numLn.sort(key= lambda x: str(x[4]))
     
+    elif(User):
+        numLn.sort(key= lambda x: str(x[0]))
+
     else:
-        numLn.sort()
+        numLn.sort(key= lambda x: int(x[0]))
+
+    for i in range(len(numLn)):
+        numLn[i] = '-'.join(numLn[i])
+    #endfor
 
     return numLn
 #end
@@ -153,6 +161,7 @@ def VerfOper(oper):
     return False
 
 def GetName(email,num):
+    f = 0
     f = open("users.txt","r")
     l = f.readline() 
     numLn = f.readlines()
@@ -166,6 +175,11 @@ def GetName(email,num):
         #endif
     #endfor
 
+    if(f == 0):
+        return None
+    #endif
+
+
 
 def GroupUtil(numLn,Nom=False,Oper=False):
     count=0
@@ -174,7 +188,7 @@ def GroupUtil(numLn,Nom=False,Oper=False):
         nomes = []
         print("Agrupado por Nomes\n")
         
-        Orde(numLn)
+        Orde(numLn,True)
 
         for ln in numLn:
             nome,email,num,tel,oper = ln.split('-')
@@ -203,7 +217,7 @@ def GroupUtil(numLn,Nom=False,Oper=False):
         OperTel = ['NOS','VODAFONE','MEO','NOWO']
         print("Numero de Utilizadores por Operadora\n")
         
-        Orde(numLn)
+        Orde(numLn,True)
 
         for OpTl in OperTel:
             for ln in numLn:
@@ -294,23 +308,28 @@ def UpdateFileTw(filename,numLn):
     f = open(filename,"w")
     f.write("Id-IdResp-Nome-Tópico-Tweet-Likes\n")
     level=0
+    indentation = 0
 
     for i in range(len(numLn)):
         numLn[i] = numLn[i].rstrip('\n')
         numLn[i] = numLn[i].strip()
+        antes = numLn[i].split('-')
+
         if(i+1<len(numLn)):
             numLn[i+1] = numLn[i+1].rstrip('\n')
             numLn[i+1] = numLn[i+1].strip()
+            frente = numLn[i+1].split('-')
+        #endif
 
         indentation = '\t' * level
         print(indentation,numLn[i],file=f,end='\n')
 
         if((i+1)<len(numLn)):
-            if(numLn[i+1][2] == "0"):
+            if(frente[1] == "0"):
                 level = 0
-            elif(numLn[i+1][2]>numLn[i][2]):
+            elif(frente[1]>antes[1]):
                 level+=1
-            elif(numLn[i+1][2]<numLn[i][2]):
+            elif(frente[1]<antes[1]):
                 level-=1
         elif((i+1)>=len(numLn)):
             break
@@ -331,7 +350,7 @@ def GroupTw(numLn,Nom=False,Top=False,Lk=False):
         nomes = []
         print("Numero de Tweets por User\n")
         
-        Orde(numLn,True)
+        Orde(numLn,False,True)
 
         for ln in numLn:
             id,idresp,nome,top,tw,lk = ln.split('-')
@@ -360,7 +379,7 @@ def GroupTw(numLn,Nom=False,Top=False,Lk=False):
         topicos = []
         print("Numero de Tweets por Tópico\n")
         
-        Orde(numLn,False,True)
+        Orde(numLn,False,False,True)
 
         for ln in numLn:
             id,idresp,nome,top,tw,lk = ln.split('-')
@@ -389,7 +408,7 @@ def GroupTw(numLn,Nom=False,Top=False,Lk=False):
         lks = [0,5,10,25,50,75,100]
         print("Numero de likes dos tweets superior a: \n")
         
-        Orde(numLn,False,False,True)
+        Orde(numLn,False,False,False,True)
 
         for lk in lks:
             for ln in numLn:

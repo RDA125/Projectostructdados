@@ -32,7 +32,7 @@ def PesqUtil():
 
                         print("%-20s %-20s %-20s %-20s %s" % (nom,email,num,tel,oper))
 
-                        Orde(numLn)#ordenar alfabeticamente
+                        Orde(numLn,True)#ordenar alfabeticamente
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -68,7 +68,7 @@ def PesqUtil():
 
                         print("%-20s %-20s %-20s %-20s %s" % (nom,email,num,tel,oper))
 
-                        Orde(numLn)# ordenar Alfabeticamente
+                        Orde(numLn,True)# ordenar Alfabeticamente
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -131,7 +131,7 @@ def CountU():
                         Clear()
                         print("Resultado da contagem para Utilizadores com o mesmo Nome iniciado com\n")
 
-                        Orde(numLn)
+                        Orde(numLn,True)
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -165,7 +165,7 @@ def CountU():
                         Clear()
                         print("Resultado da contagem\n")
 
-                        Orde(numLn)
+                        Orde(numLn,True)
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')

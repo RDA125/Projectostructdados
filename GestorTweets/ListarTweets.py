@@ -68,7 +68,7 @@ def showOrd(numLn):
         elif(op == 2):
             print("\nOrdenação por Nome\n")
 
-            Orde(numLn,True)
+            Orde(numLn,False,True)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
@@ -79,7 +79,7 @@ def showOrd(numLn):
         elif(op == 3):
             print("\nOrdenação por Tópico\n")
 
-            Orde(numLn,False,True)
+            Orde(numLn,False,False,True)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
@@ -90,7 +90,7 @@ def showOrd(numLn):
         elif(op == 4):
             print("\nOrdenação por Likes\n")
 
-            Orde(numLn,False,False,True)
+            Orde(numLn,False,False,False,True)
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")
                 print("%-5s %-5s %-5s \"%s\" - %s" % (Id,Nome,Tp,Tw,Lk))
@@ -190,7 +190,7 @@ def ListarUTw(name=""):
         idtw,idresp,nome,tp,tw,lk = l.split("-")
         print("%-5s %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
-        Orde(numLn) #(list,Nome=false,Top=false,likes=false) default = id
+        Orde(numLn) 
         if(name != ""):
             for ln in numLn:
                 Id,idResp,Nome,Tp,Tw,Lk = ln.split("-")

@@ -16,7 +16,7 @@ def ElimTw(name=""):
             found=0
             i=0
 
-            #eliminar tweets para user com nome, não esquecer de por num if caso o seja o admin - ver alterar para a base
+           
             Orde(numLn)
             if(name != ""):
                 for ln in numLn:

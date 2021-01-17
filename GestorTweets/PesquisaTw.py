@@ -33,7 +33,7 @@ def PesqTw():
 
                         print("%-5s  %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
-                        Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+                        Orde(numLn,False,False,False,True)# ordenar do tweet com mais likes para o com menos
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -66,7 +66,7 @@ def PesqTw():
 
                         print("%-5s  %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
-                        Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+                        Orde(numLn,False,False,False,True)# ordenar do tweet com mais likes para o com menos
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -109,7 +109,7 @@ def PesqTw():
 
                     print("%-5s  %-5s %-5s %s - %s" % (idtw,nome,tp,tw,lk))
 
-                    Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+                    Orde(numLn,False,False,False,True)# ordenar do tweet com mais likes para o com menos
 
                     for ln in numLn:
                         ln = ln.rstrip('\n')
@@ -167,7 +167,7 @@ def CountTw():
                         Clear()
                         print("Resultado da contagem\n")
 
-                        Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+                        Orde(numLn,False,False,False,True)# ordenar do tweet com mais likes para o com menos
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -199,7 +199,7 @@ def CountTw():
                         Clear()
                         print("Resultado da contagem\n")
 
-                        Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+                        Orde(numLn,False,False,False,True)# ordenar do tweet com mais likes para o com menos
 
                         for ln in numLn:
                             ln = ln.rstrip('\n')
@@ -242,7 +242,7 @@ def CountTw():
                     Clear()
                     print("Resultado da contagem\n")
 
-                    Orde(numLn,False,False,True)# ordenar do tweet com mais likes para o com menos
+                    Orde(numLn,False,False,False,True)# ordenar do tweet com mais likes para o com menos
 
                     for ln in numLn:
                         ln = ln.rstrip('\n')

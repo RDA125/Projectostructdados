@@ -11,7 +11,7 @@ def showOrdU(numLn):
         if(op == 1):
             print("\nOrdenação por Nome\n")
 
-            Orde(numLn)
+            Orde(numLn,True)
 
             for ln in numLn:
                 Nome,Email,Num,Telefone,Oper = ln.split("-")
@@ -24,7 +24,7 @@ def showOrdU(numLn):
         elif(op == 2):
             print("\nOrdenação por Operadora\n")
 
-            Orde(numLn,False,False,False,True)
+            Orde(numLn,False,False,False,False,True)
 
             for ln in numLn:
                 Nome,Email,Num,Telefone,Oper = ln.split("-")

@@ -28,7 +28,7 @@ def Alterar(name =""):
 
                     else:
                         print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                        print('\033[1A                            \033[K',end="\r")
+                        print('\033[2A                            \033[K',end="\r")
                     #endif
                 else:
                     sname = name
@@ -50,8 +50,8 @@ def Alterar(name =""):
                         try:
                             op = int(input())
                         except ValueError:
-                            print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
-                            print('\033[1A                            \033[K',end="\r")
+                            op = -1
+                            
                         
                         if(op == 1):
                             while True:
@@ -61,8 +61,9 @@ def Alterar(name =""):
                                 if(VerfName(newname)):
                                     if(VerfExist(newname)):
                                         print('\033[1A'+input("Nome já existe.")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     else:
+                                        name = newname
                                         ln[0]=str(newname)
                                         ln='-'.join(ln)
                                         ln+='\n'
@@ -71,7 +72,7 @@ def Alterar(name =""):
                                     #endif
                                 else:
                                     print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                            \033[K',end="\r")
                                 #endif
                             #endwhile
                             break
@@ -84,7 +85,7 @@ def Alterar(name =""):
                                 if(VerfEmail(newmail)):
                                     if(VerfExist(newmail)):
                                         print('\033[1A'+input("email já existe.")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     else:
                                         ln[1]=str(newmail)
                                         ln='-'.join(ln)
@@ -94,7 +95,7 @@ def Alterar(name =""):
                                     #endif
                                 else:
                                     print('\033[1A'+input("email inválido.")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                            \033[K',end="\r")
                                 #endif
                             #endwhile
                             break
@@ -102,24 +103,24 @@ def Alterar(name =""):
                         elif(op == 3):
                             while True:
                                 try:
-                                    newnum = int(input("Insira Novo Número: "))
+                                    newnum = int(input("\nInsira Novo Número: "))
 
                                 except ValueError:
                                     print('\033[1A'+input("Número inválido")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                            \033[K',end="\r")
 
                                     continue
 
                                 if(newnum<1000000 or newnum>9999999):
                                     print('\033[1A'+input("Número tem que ter 7 digitos")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                            \033[K',end="\r")
 
                                 else:
                                     if(VerfExist(newnum)):
                                         print('\033[1A'+input("Número de Utilizador já existe.")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     else:
-                                        ln[2]=str(newtel)
+                                        ln[2]=str(newnum)
                                         ln='-'.join(ln)
                                         ln+='\n'
                                         numLn[i]=ln
@@ -136,18 +137,18 @@ def Alterar(name =""):
 
                                 except ValueError:
                                     print('\033[1A'+input("Número de Telefone inválido")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                            \033[K',end="\r")
 
                                     continue 
                                 
                                 if(newtel<910000000 or newtel>999999999):
                                     print('\033[1A'+input("Número de Telefone inválido [910000000-999999999]")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                            \033[K',end="\r")
 
                                 else:
                                     if(VerfExist(newtel)):
                                         print('\033[1A'+input("Número de Telefone já existe.")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     else:
                                         ln[3]=str(newtel)
                                         ln='-'.join(ln)
@@ -160,12 +161,12 @@ def Alterar(name =""):
 
                         elif(op == 5):
                             while True:
-                                newoper = input('Insira Nova Operadora de Telemóveis: ').upper()
+                                newoper = input('\nInsira Nova Operadora de Telemóveis: ').upper()
 
                                 if(VerfOper(newoper)):
                                     if(newoper == Oper):
                                         print('\033[1A'+input("Operadora tem que ser diferente à existente")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     
                                     else:
                                         ln[4]=str(newoper)
@@ -176,7 +177,7 @@ def Alterar(name =""):
 
                                 else:
                                     print('\033[1A'+input("Operadora inválida.")+'\033[K',end="\r")
-                                    print('\033[1A                            \033[K',end="\r")
+                                    print('\033[2A                                                                      \033[K',end="\r")
                                 #endif
                             #endwhile
                             break
@@ -185,7 +186,7 @@ def Alterar(name =""):
                             found = -1
                             break
 
-                        else:
+                        elif(op == -1):
                             found = -5
                             print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
                             print('\033[1A                            \033[K',end="\r")
@@ -218,7 +219,7 @@ def Alterar(name =""):
                 else:
                     if(op != "s" and op != "S"):
                         Clear()
-                        break
+                        return name
                     else:
                         op=0
                         Clear()

@@ -9,6 +9,7 @@ def RespTw(name):
     while True:
         i=0
         found=0
+        sId = -1
         #p = id do tweet
         f= open("tweets.txt",'r')
         l = f.readline()
@@ -40,6 +41,9 @@ def RespTw(name):
         if(sId == 0):
             Clear()
             return
+
+        else:
+            found = -1
         #endif
 
         for ln in numLn:
@@ -91,6 +95,9 @@ def RespTw(name):
                 op=0
                 Clear()
             #endif
+
+        elif(found == -1):
+            Clear()
 
         else:
             input("Tweet não existe")

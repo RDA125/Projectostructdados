@@ -53,7 +53,15 @@ def Login():
                         if(VerfExist(num) and email != "admin@admin.com"):
                             
                             name = GetName(email,num)
-                            break
+
+                            if(name == None):
+                                c-=1
+                                input("Número errado.\n%d Tentativa(s) restante(s)." % c)
+                                CreateMenu.Clear()
+                            else:
+
+                                break
+                            #endif
 
                         else:
                             c-=1

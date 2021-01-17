@@ -13,6 +13,7 @@ def AlterarTw(name):
             f.close
             numUTw = 0
             found=0
+            sId = -1
             i=0
 
             Orde(numLn)
@@ -28,20 +29,21 @@ def AlterarTw(name):
             #endfor
 
             if(numUTw != 0):
-                while True:
-                    try:
-                        sId = int(input("\nInsira Id do Tweet que deseja Alterar os Dados(0-voltar atrás): "))
-                    except ValueError:
-                        print('\033[1A'+input("Id inválido")+'\033[K',end="\r")
-                        print('\033[1A                            \033[K',end="\r")
+                
+                try:
+                    sId = int(input("\nInsira Id do Tweet que deseja Alterar os Dados(0-voltar atrás): "))
+                except ValueError:
+                    print('\033[1A'+input("Id inválido")+'\033[K',end="\r")
+                    print('\033[1A                            \033[K',end="\r")
 
-                    finally:
-                        break
-                #endwhile
                 
                 if(sId == 0):
                     Clear()
                     return
+                
+                else:
+                    op = -1
+                    found = -2
                 #endif
 
                 for ln in numLn:
@@ -73,7 +75,7 @@ def AlterarTw(name):
                                         #endif
                                     else:
                                         print('\033[1A'+input("Tópico inválido.")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     #endif
                                 #endwhile
                                 break
@@ -92,7 +94,7 @@ def AlterarTw(name):
                                         #endif
                                     else:
                                         print('\033[1A'+input("Tweet tem de ter pelo menos um character com um máximo de 250.")+'\033[K',end="\r")
-                                        print('\033[1A                            \033[K',end="\r")
+                                        print('\033[2A                            \033[K',end="\r")
                                     #endif
                                 #endwhile
                                 break
@@ -111,6 +113,9 @@ def AlterarTw(name):
                     input("Tweet não existe")
                     Clear()
 
+                elif(found == -2):
+                    Clear()
+                
                 else:
 
                     if(found == 1):

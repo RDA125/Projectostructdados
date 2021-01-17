@@ -27,8 +27,9 @@ def Elim():
 
                 else:
                     print('\033[1A'+input("Nome inválido.")+'\033[K',end="\r")
-                    print('\033[1A                            \033[K',end="\r")
+                    print('\033[2A                            \033[K',end="\r")
                 #endif
+            #endwhile
 
         
             for ln in numLn:
@@ -129,6 +130,7 @@ def ElimTw(name):
                     op= input('Tem a certeza que deseja eliminar(s/n)?')
 
                     if((op != "s" and op != "S") and (op != "n" and op !="N")):
+                        found = -2
                         print('\033[1A'+input("Opção inválida")+'\033[K',end="\r")
                         print('\033[1A                            \033[K',end="\r")
                     
@@ -148,8 +150,6 @@ def ElimTw(name):
                 i+=1
             #endfor
 
-            
-
             if(found == 1):
                 UpdateFile("users.txt",numLn)
                 op = input("Utilizador eliminado com sucesso\n")
@@ -159,6 +159,9 @@ def ElimTw(name):
             elif(found == -1):
                 Clear()
                 return False
+            
+            else:
+                Clear()
             #endif
         #endwhile
 

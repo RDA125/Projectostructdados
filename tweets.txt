@@ -1,10 +1,13 @@
 Id-IdResp-Nome-Tópico-Tweet-Likes
  1-0-Test-test-olá test 1 2 3-3
-	 6-1-José-test-tweet close haha-6
-		 7-6-Test-test-tweet ha-4
+ 2-0-Test-Geral-tweet ha-4
 	 3-1-Test-test-tweet resp-2
-		 5-3-Test-test-tweet resp 3-1
-			 8-5-José-test-tweet jose-2
- 2-0-Test-Geral-tweet ha-1
-	 4-2-Test-test-tweet hahha-2
-		 9-4-Test-test-tweet resp a 4-0
+		 4-2-Test-test-tweet hahha-2
+			 5-3-Test-test-tweet resp 3-2
+		 6-1-José-test-tweet close haha-7
+			 7-6-Test-test-tweet ha-4
+		 8-5-José-test-tweet jose-2
+	 9-4-Test-test-tweet resp a 4-2
+		 10-8-Test-test-Pelo menos isto funciona-4
+	 11-5-Test-test-Amen pela resposta-0
+ 12-0-Test-O Fim-O fim de um livro é o inicio de outro-0
