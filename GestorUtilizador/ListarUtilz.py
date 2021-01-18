@@ -15,7 +15,7 @@ def showOrdU(numLn):
 
             for ln in numLn:
                 Nome,Email,Num,Telefone,Oper = ln.split("-")
-                print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
+                print("%-20s %-30s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
             #endfor
 
             print("\n")
@@ -29,7 +29,7 @@ def showOrdU(numLn):
 
             for ln in numLn:
                 Nome,Email,Num,Telefone,Oper = ln.split("-")
-                print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
+                print("%-20s %-30s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
             #endfor
 
             print("\n")
@@ -109,11 +109,11 @@ def Listar():
         f.close
         
         nome,email,num,tel,oper = l.split("-")
-        print("%-20s %-20s %-20s %-20s %s" % (nome, email, num, tel, oper))
+        print("%-20s %-30s %-20s %-20s %s" % (nome, email, num, tel, oper))
         for ln in numLn:
             ln = ln.rstrip('\n')
             Nome,Email,Num,Telefone,Oper = ln.split("-")
-            print("%-20s %-20s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
+            print("%-20s %-30s %-20s %-20s %s" % (Nome, Email, Num, Telefone, Oper))
         #endfor
             
         input("\nPrima enter....")

@@ -1,7 +1,22 @@
 Nome-Email-Número-Telefone-Operadora
 Test-test@test.com-1000000-9111111111-VODAFONE
-Gert-ger@ger.com-1111111-978654321-MEO
-Fér-fer@fer.net-1234567-912345678-NOS
-José-josesilva@gmail.com-1752354-931245678-NOWO
-José Almeida-josesilva@gmail.com-1752354-932245577-NOWO
+João Teixeira-joaoccaleixo@gmail.com-1705053-918654327-MEO
+Rodrigo Silva-rodrikpsilva@gmail.com-1705161-913345278-NOS
+Pedro Nunes-pedrofnjusto@gmail.com-1705125-932245577-NOWO
 João-joao@gmail.com-1423567-941235678-MEO
+Paulo Proença-paulojorgeproenca@gmail.com-1704890-923365441-MEO
+Alexandre Rocha-alexrocha@gmail.com-1704920-917766992-VODAFONE
+José Miranda-jmiguelmartinsm@gmail.com-1705397-918834586-NOWO
+Ana Vidal-raquelvidal99@hotmail.com-1705182-916578983-NOS
+Ricardo Sousa-satao.net@hotmail.com-1705109-925533115-NOS
+António Cerdeira-antonio.cerdeira@hotmail.com-1700430-946887923-VODAFONE
+Alexandre Simões-ats05062000@hotmail.com-1702119-951234576-MEO
+Diogo Araújo-diogo.g.araujo@hotmail.com-1704562-914565434-NOS
+Diogo Neto-dvnetoubz@gmail.com-1704479-962128765-MEO
+Francisco Morais-Franciscofcp32@gmail.com-1704460-921331664-NOWO
+João Ferreira-joao.p.saraiva.ferreira@gmail.com-1703661-942266178-NOWO
+Daniel Nunes-daniel.nunes97@hotmail.com-1705261-954432687-VODAFONE
+Miguel Cardoso-miguelcardoso1204@gmail.com-1704127-985776992-NOS
+Eduardo Silva-eduardomacedo951@gmail.com-1702770-966345332-NOWO
+Juliana Silva-julianamusica12@gmail.com-1705177-988556334-MEO
+Pedro Saraiva-pedrocalousa@gmail.com-1704730-933566988-VODAFONE
