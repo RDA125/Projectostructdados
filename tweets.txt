@@ -1,13 +1,21 @@
 Id-IdResp-Nome-Tópico-Tweet-Likes
- 1-0-Test-test-olá test 1 2 3-3
-	 6-1-José-test-tweet close haha-7
-		 7-6-Test-test-tweet ha-4
-	 3-1-Test-test-tweet resp-2
-		 5-3-Test-test-tweet resp 3-2
-			 11-5-Test-test-Amen pela resposta-0
-			 8-5-José-test-tweet jose-2
-				 10-8-Test-test-Pelo menos isto funciona-4
- 2-0-Test-Geral-tweet ha-4
-	 4-2-Test-test-tweet hahha-2
-		 9-4-Test-test-Tweet resp 4-2
- 12-0-Test-O Fim-O fim de um livro é o inicio de outro-0
+ 1-0-Test-test-Teste Tweet-3
+	 6-1-João Teixeira-test-Bom tweet-7
+		 7-6-Ana Vidal-test-Não-4
+	 3-1-Pedro Nunes-test-Ok-25
+		 5-3-António Cerdeira-test-concordo-8
+			 11-5-José Miranda-test-discordo-17
+ 2-0-Test-Geral-O programa funciona-4
+	 16-2-Duarte Carvalho-Geral-Boa-2
+	 4-2-Diogo Neto-Geral-Ainda bem-3
+		 9-4-Miguel Cardoso-Geral-pois-2
+ 8-0-Pedro Saraiva-Notícias-Escolas abertas!!!-121
+	 18-8-Duarte Carvalho-Notícias-Maravilha-20
+	 10-8-João Teixeira-Notícias-Não sei não, com o número de casos a aumentar...-72
+ 12-0-Rodrigo Silva-O Fim-O fim de um livro é o inicio de outro-53
+	 14-12-Pedro Nunes-O Fim-WoW-12
+	 13-12-Eduardo Silva-O Fim-Quem diria-22
+		 15-13-Ana Vidal-O Fim-Realmente-15
+ 17-0-Diogo Araújo-Inspiração-[algo inspirador]-87
+	 20-17-José Miranda-Inspiração-Profundo-61
+	 19-17-Juliana Silva-Inspiração-Que inspiração-40
