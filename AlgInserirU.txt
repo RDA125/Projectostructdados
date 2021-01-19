@@ -1,0 +1,40 @@
+algoritmo "Inserir Utilizador"
+objectivo: Inserir utilizador para um ficheiro.
+
+var
+	nome,email : caractere
+	f:file stream
+	numero,telefone:int
+
+inicio
+	
+	f <- Abrir("users.txt","a")
+
+	Escreve("Insira nome: ")
+	ler(nome)
+	
+	Escreve("Insira Email: ")
+	ler(email)
+	
+	fazer
+		Escreve("Insira número: ")
+		ler(numero)
+
+	enquanto(num<1000000 ou num>9999999)
+	
+	fazer
+		Escreve("Insira Numero de Telefone: ")
+		ler(telefone)
+	
+	enquanto(telefone<910000000 ou telefone>999999999)
+
+	FicheiroEscreve(f,"%s-%s-%d-%d\n",nome,email,numero,telefone)
+	f.fechar()
+	
+	Escreve("Utilizador inserido com sucesso")
+	Escreve(nome)
+	Escreve(email)
+	Escreve(numero)
+	Escreve(Telefone)
+	
+fim

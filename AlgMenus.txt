@@ -1,0 +1,64 @@
+algoritmo "Crear_Menus"
+objectivo: Mostrar um menu com opções dadas num vetor
+
+
+//funçao para mostrar menu
+funcao CriaMenu (numOpc: inteiro;Titulo, opcs[100], exitmsg: caractere):inteiro
+var
+	i,opc:inteiro
+inicio
+	enquanto Verdade fazer
+		tenta fazer
+			se Tamanho(titulo)>0 então
+				Escreve(titulo,"\n")
+			fimse
+			
+			para i=0 até numOpc passo 1
+				Escreve(i+1,": ",opc[i])
+			fimpara
+			
+			se exitmsg <> "" então
+				Escreve("0 : ",exitmsg,"\n")
+			senão
+				Escreve("0 : Terminar Programa.\n")
+			fimse
+			
+			Escreve("Escolha uma opção:")
+			ler(opc)
+		Exceção para Erro de Valor:
+			Escreve("Opção tem que ser um inteiro")
+			fimfuncao
+		fimtenta
+		
+		se (opc<0 e opc>numOpc) então
+			Escreve("Opção não existe.")
+			fimfuncao
+		senão
+			fimenquanto
+		fimse	
+	fimenquanto
+	
+	devolve opc
+
+fimfuncao
+
+//Algoritmo
+var 
+	opc:inteiro
+
+Inicio
+
+	opc <- CriaMenu(3,"Menu Teste",["Test1","teste2","teste3"])
+
+	caso(opc)
+		caso 1 fazer
+			Escrever("1")
+		Caso 2 fazer
+			Escrever("2")
+		Caso 3 fazer
+			Escrever("3")
+		Outro Caso fazer
+			Escrever("")
+	fimcaso
+
+Fim	

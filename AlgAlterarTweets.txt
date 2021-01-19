@@ -1,0 +1,66 @@
+algoritmo "Alterar dados tweet"
+objectivo: Alterar informação de um tweet.
+
+
+/
+importa CriaMenu,Atualizarficheiro
+//função
+funcao AlterarTweet(nome)
+var
+	novotopico,novotweet, linhas[100]: caractere
+	f:file stream
+	encontrou,op,i:int
+
+inicio
+	i <- 0
+	encontrou <- 0
+
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	Por cada linha em Linhas fazer
+		linha <- linha.remover("\n")		
+		linha <- linha.separa("-")
+	
+		Se(nome == linha[0]) então
+			encontrou <- 1
+			
+			op <- CriaMenu(2,"Alterar",["topico","tweet"],"volta atrás")
+		
+			caso(op)
+				caso 1 fazer
+					Escreve("Insira novo topico")
+					ler(novotopico)
+					
+					linha[3] <-novotopico
+					linha <- adicionar("-")
+					linha <- linha + "\n"
+					Linhas[i] <- linha
+				caso 2 fazer
+					fazer
+						Escreve("Insira novo tweet")
+						ler(novotweet)
+					enquanto(Tamanho(tweet)>280)
+					
+					linha[4] <-novotweet
+					linha <- adicionar("-")
+					linha <- linha + "\n"
+					Linhas[i] <- linha
+
+		fimse
+		i++
+	fimPorCada
+	
+	se (encontrou == 0) então
+		Escreve("tweet não existe")
+	seNão
+		Escreve("Valores alterados com sucesso")
+		AtualizarFicheiro("tweets.txt",Linhas)
+	fimse
+fimfuncao
+
+//algoritmo
+inicio
+	AlterarTweet("João")
+fim	
