@@ -1,0 +1,64 @@
+algoritmo "Hierarquia tweets"
+objectivo: Estruturar os tweets de forma a respostas terem indentações
+
+
+//função
+funcao AtualizarFicheiro(Linhas[100]:caracter)
+var
+	linhas[100], antes, frente,identacao: caractere
+	f:file stream
+	i,nivel:int
+
+inicio
+	i <-0	
+	nivel <-0
+	identacao <- 0
+
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	Para i = 0 até Tamanho(Linhas) fazer
+		Linhas[i] <- Linhas[i].remover("\n")
+		Linhas[i] <- Linhas[i].remover()
+		antes <- Linhas[i].separa("-")
+
+		se((i+1)<Tamanho(Linhas)) então
+			
+			Linhas[i+1] <- Linhas[i+1].remover("\n")
+			Linhas[i+2] <- Linhas[i+1].remover()
+			frente <- Linhas[i+1].separa("-")
+		fimse
+		
+		
+		identacao = '\t' * nivel
+		EscreveFicheiro(f,"%s %s\n",identacao,Linhas[i])
+
+		se((i+1)<Tamanho(Linhas)) então
+		
+			se(frente[1] == "0") então
+				nivel <- 0
+			
+			Senão se(frente[1]>antes[1]) então
+				nivel++
+			Senão se(frente[1]<antes[1]) então
+				nivel--
+			fimse
+		Senão
+			fimPara
+		fimse
+		
+	fimPara
+
+	f.flush()
+	f.fechar()
+fimfuncao
+
+//algoritmo
+var
+	Linhas[100]:caractere
+inicio
+	Linhas	<- ["1-0-test-teste-teste-0","3-1-teste-teste-teste2-0","4-3-teste-teste-teste4-0","2-0-teste-teste-test-0","3-2-teste-teste-test3-0"]
+		
+	AtualizarFicheiro(Linhas)
+fim	

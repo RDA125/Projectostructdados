@@ -1,0 +1,105 @@
+algoritmo "Agrupar tweets"
+objectivo: contar e agrupar numero de tweets com o mesmo nome, topico, numero de likes.
+
+
+/
+importa CriaMenu
+//função
+funcao AgrupTweet()
+var
+	linhas[100],Nomes[100],Topicos[100],NLikes[7]: caractere
+	f:file stream
+	op,cont:int
+
+inicio
+	cont <- 0
+
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+
+	op <- CriaMenu(3,"Agrupar Tweets",["Nome","Tópico","Likes"],"voltar átras")
+	
+	caso(op)
+		caso 0 fazer
+			fimfuncao
+		caso 1 fazer
+			
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
+	
+				Nomes.adciciona(Nome)
+			fimPorCada
+			
+			Por Cada nome em Nomes fazer
+			
+				Por Cada linha em linhas fazer
+					
+					linha <- linha.separa("-")
+
+					se(linha[1] == nome) então
+						cont++
+					fimse
+				fimPorCada
+				
+				Escreve("%s: %d\n",nome,cont)
+				cont <- 0			
+
+			fimPorCada
+
+			
+		
+		caso 2 fazer
+
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
+	
+				Topicos.adciciona(Topico)
+			fimPorCada
+			
+			Por Cada topico em Topicos fazer
+			
+				Por Cada linha em linhas fazer
+					
+					linha <- linha.separa("-")
+
+					se(linha[2] == topico) então
+						cont++
+					fimse
+				fimPorCada
+				
+				Escreve("%s: %d\n",topico,cont)
+				cont <- 0			
+
+			fimPorCada
+		
+		Caso 3 fazer
+			NLikes = [0,5,10,25,50,75,100]
+
+			
+			Por Cada nlike em NLikes fazer
+			
+				Por Cada linha em linhas fazer
+					
+					linha <- linha.separa("-")
+
+					se(linha[4] >= nlike) então
+						cont++
+					fimse
+				fimPorCada
+				
+				Escreve("%d Likes: %d\n",nlike,cont)
+				cont <- 0			
+
+			fimPorCada
+		
+	fimcaso
+fimfuncao
+
+//algoritmo
+inicio
+	AgrupTweet()
+fim	

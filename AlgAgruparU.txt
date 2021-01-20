@@ -1,0 +1,56 @@
+algoritmo "Agrupar Utilizador"
+objectivo: Contar e agrupar utilizadores por nome.
+
+
+/
+importa CriaMenu
+//função
+funcao ContU()
+var
+	linhas[100],Nomes[100]: caractere
+	f:file stream
+	cont,op:int
+
+inicio
+	cont <- 0
+
+	f <- Abrir("users.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	op <- CriaMenu(1,"Agrupar Utilizador",["Nome"],"voltar átras")
+	
+	caso(op)
+		caso 0 fazer
+			fimfuncao
+		caso 1 fazer
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Nome,email,numero,telefone <- linha.separa("-")
+	
+				Nomes.adciciona(Nome)
+			fimPorCada
+			
+			Por Cada nome em Nomes fazer
+			
+				Por Cada linha em linhas fazer
+					
+					linha <- linha.separa("-")
+
+					se(Semelhante(linha[0], nome)) então
+						cont++
+					fimse
+				fimPorCada
+				
+				Escreve("%s: %d\n",nome,cont)
+				cont <- 0			
+
+			fimPorCada
+		
+	fimcaso
+fimfuncao
+
+//algoritmo
+inicio
+	ContU()
+fim
