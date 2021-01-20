@@ -1,29 +1,28 @@
-algoritmo "Pesquisa de tweet"
-objectivo: Pesquisar um tweet por nome de quem postou, tópico ou numero de likes.
+algoritmo "Contar tweets"
+objectivo: contar numero de tweets com o mesmo nome, topico, numero de likes.
 
 
 /
 importa CriaMenu
 //função
-funcao PesqTweet()
+funcao ContTweet()
 var
 	NomeProc,TopicoProc, linhas[100]: caractere
 	f:file stream
-	encontrou,op,LikesProc:int
+	op,cont,LikesProc:int
 
 inicio
-	encontrou <- 0
+	cont <- 0
 
 	f <- Abrir("tweets.txt","r")
 	linhas <- f.lerlinhas()
 	f.fechar()
 	
 
-	op <- CriaMenu(3,"Pesquisa Tweets",["Nome","Tópico","Likes"],"voltar átras")
+	op <- CriaMenu(3,"Contar Tweets",["Nome","Tópico","Likes"],"voltar átras")
 	
 	caso(op)
 		caso 0 fazer
-			encontrou <- -1
 			fimfuncao
 		caso 1 fazer
 			Escreve("Insira nome")
@@ -34,13 +33,15 @@ inicio
 				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
 	
 				Se(NomeProc == Nome) então
-					encontrou <- 1
-					Escreve("%d %s %s %s %d\n",Id,Nome,Topico,tweet,Likes)
+					cont++
+					
 				fimse
 			fimPorCada
 			
-			se(encontrou == 0) então
-				Escreve("Nome não encontrado")
+			se(cont == 0) então
+				Escreve("Não existe tweets com este nome")
+			seNã0
+				Escreve("%s: %d\n",NomeProc,cont)
 			fimse
 		
 		caso 2 fazer
@@ -52,13 +53,14 @@ inicio
 				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
 	
 				Se(TopicoProc == Topico) então
-					encontrou <- 1
-					Escreve("%d %s %s %s %d\n",Id,Nome,Topico,tweet,Likes)
+					cont++
 				fimse
 			fimPorCada
 			
-			se(encontrou == 0) então
-				Escreve("Topico não encontrado")
+			se(cont == 0) então
+				Escreve("Não existe tweets com este topico")
+			seNã0
+				Escreve("%s: %d\n",TopicoProc,cont)
 			fimse
 		
 		Caso 3 fazer
@@ -69,14 +71,15 @@ inicio
 				linha <- linha.remover("\n")		
 				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
 	
-				Se(LikesProc <= Likes) então
-					encontrou <- 1
-					Escreve("%d %s %s %s %d\n",Id,Nome,Topico,tweet,Likes)
+				Se(LikesProc == Likes) então
+					cont++
 				fimse
 			fimPorCada
 			
-			se(encontrou == 0) então
-				Escreve("Não existe tweets com likes superior ou iguais ao inserido ")
+			se(cont == 0) então
+				Escreve("Não existe tweets com este numero de likes")
+			seNã0
+				Escreve("Likes %d: %d\n",LikesProc,cont)
 			fimse
 		
 	fimcaso
@@ -84,5 +87,5 @@ fimfuncao
 
 //algoritmo
 inicio
-	PesqTweet()
+	ContTweet()
 fim	
