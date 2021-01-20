@@ -1,0 +1,52 @@
+algoritmo "Pesquisa de Utilizador"
+objectivo: Pesquisar utilizadores por nome.
+
+
+/
+importa CriaMenu
+//função
+funcao PesqU()
+var
+	NomeProc, linhas[100]: caractere
+	f:file stream
+	encontrou,op:int
+
+inicio
+	encontrou <- 0
+
+	f <- Abrir("users.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	op <- CriaMenu(1,"Pesquisa Utilizador",["Nome"],"voltar átras")
+	
+	caso(op)
+		caso 0 fazer
+			encontrou <- -1
+			fimfuncao
+		caso 1 fazer
+			Escreve("Insira nome")
+			ler(NomeProc)
+			
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Nome,email,numero,telefone <- linha.separa("-")
+	
+				Se(Semelhante(Nome,NomeProc)) então
+					encontrou <- 1
+					Escreve("%s %s %d %d\n",Nome,email,numero,telefone)
+				fimse
+			fimPorCada
+			
+			se(encontrou == 0) então
+				Escreve("Nome não encontrado")
+			fimse
+		
+		
+	fimcaso
+fimfuncao
+
+//algoritmo
+inicio
+	PesqU()
+fim	

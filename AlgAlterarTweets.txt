@@ -47,6 +47,10 @@ inicio
 					linha <- linha.adicionar("-")
 					linha <- linha + "\n"
 					Linhas[i] <- linha
+				caso 0 fazer
+					encontrou <- -1
+					fimPorCada
+			fimcaso
 
 		fimse
 		i++
@@ -54,6 +58,9 @@ inicio
 	
 	se (encontrou == 0) então
 		Escreve("tweet não existe")
+	seNão se(encontrou == -1)
+		fimfuncao
+
 	seNão
 		Escreve("Valores alterados com sucesso")
 		AtualizarFicheiro("tweets.txt",Linhas)

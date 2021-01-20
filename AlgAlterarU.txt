@@ -64,7 +64,11 @@ inicio
 					linha[3] <-novotelefone
 					linha <- adicionar("-")
 					linha <- linha + "\n"
-					Linhas[i] <- linha
+					Linhas[i] <- linha	
+				caso 0 fazer
+					encontrou <- -1
+					fimPorCada
+			fimcaso
 
 		fimse
 		i++
@@ -72,6 +76,10 @@ inicio
 	
 	se (encontrou == 0) então
 		Escreve("Nome não existe")
+	
+	seNão se(encontrou == -1)
+		fimfuncao
+	
 	seNão
 		Escreve("Valores alterados com sucesso")
 		AtualizarFicheiro("users.txt",Linhas)

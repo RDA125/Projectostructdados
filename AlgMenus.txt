@@ -57,6 +57,8 @@ Inicio
 			Escrever("2")
 		Caso 3 fazer
 			Escrever("3")
+		Caso 0 fazer
+			fim
 		Outro Caso fazer
 			Escrever("")
 	fimcaso
