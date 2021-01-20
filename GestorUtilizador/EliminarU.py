@@ -123,7 +123,7 @@ def Elim():
         Clear()
     #endif
 
-def ElimTw(name):
+def ElimU(name):
 
     if Checkfile('users.txt'):
         while True:

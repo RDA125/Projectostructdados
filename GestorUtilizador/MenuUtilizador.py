@@ -49,7 +49,7 @@ def MenuUTw(name):
 
         elif (opc == 2):#Eliminar Utilizador
             MenuCreator.CreateMenu.Clear()
-            if(EliminarU.ElimTw(name)):
+            if(EliminarU.ElimU(name)):
                 return True
 
 #end

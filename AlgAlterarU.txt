@@ -34,7 +34,7 @@ inicio
 					ler(novonome)
 					
 					linha[0] <-novonome
-					linha <- adicionar("-")
+					linha <- linha.adicionar("-")
 					linha <- linha + "\n"
 					Linhas[i] <- linha
 				caso 2 fazer
@@ -42,7 +42,7 @@ inicio
 					ler(novoemail)
 					
 					linha[1] <-novoemail
-					linha <- adicionar("-")
+					linha <- linha.adicionar("-")
 					linha <- linha + "\n"
 					Linhas[i] <- linha
 				caso 3 fazer

@@ -23,7 +23,7 @@ inicio
 		linha <- linha.remover("\n")		
 		linha <- linha.separa("-")
 	
-		Se(nome == linha[0]) então
+		Se(nome == linha[1]) então
 			encontrou <- 1
 			
 			op <- CriaMenu(2,"Alterar",["topico","tweet"],"volta atrás")
@@ -34,7 +34,7 @@ inicio
 					ler(novotopico)
 					
 					linha[3] <-novotopico
-					linha <- adicionar("-")
+					linha <- linha.adicionar("-")
 					linha <- linha + "\n"
 					Linhas[i] <- linha
 				caso 2 fazer
@@ -44,7 +44,7 @@ inicio
 					enquanto(Tamanho(tweet)>280)
 					
 					linha[4] <-novotweet
-					linha <- adicionar("-")
+					linha <- linha.adicionar("-")
 					linha <- linha + "\n"
 					Linhas[i] <- linha
 

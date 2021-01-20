@@ -1,0 +1,70 @@
+algoritmo "Eliminar tweet"
+objectivo: Eliminar um tweet.
+
+
+/
+importa Atualizarficheiro
+//função
+funcao ElimTweet(nome)
+var
+	linhas[100],op: caractere
+	f:file stream
+	encontrou, Idprocura:int
+
+inicio
+	i <- 0
+	encontrou <- 0
+	Idprocura <- -1
+
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	Por cada linha em Linhas fazer
+		linha <- linha.remover("\n")		
+		id,Nome,topico,tweet,likes <- linha.separa("-")		
+		
+		se(nome == nome) então
+			Escreve("%d %s %s %s %d",id,Nome,topico,tweet,likes)
+		fimse
+	fimPorCada
+	
+	Escreve("Insira id de do tweet a eliminar: ")
+	ler(Idprocura)
+
+	Por cada linha em Linhas fazer
+		linha <- linha.remover("\n")		
+		linha <- linha.separa("-")
+	
+		Se(Idprocura == linha[0]) então
+			encontrou <- 1
+			
+			Escrever("Tem a certeza que deseja eliminar?")
+			ler(op)
+
+			se (op == "sim") então
+				linha <- linha.adicionar("-")
+				linha <- linha +"\n"
+				Linhas.remove(linha)
+				fimPorCada
+			
+			seNão
+				encontrou <- -1
+				fimPorCada
+			fimse
+
+		fimse
+	fimPorCada
+	
+	se (encontrou == 0) então
+		Escreve("tweet não existe")
+	seNão
+		Escreve("tweet eliminado com sucesso")
+		AtualizarFicheiro("tweets.txt",Linhas)
+	fimse
+fimfuncao
+
+//algoritmo
+inicio
+	ElimTweet("João")
+fim	
