@@ -8,12 +8,13 @@ Id-IdResp-Nome-Tópico-Tweet-Likes
  2-0-Test-Geral-O programa funciona-4
 	 16-2-Duarte Carvalho-Geral-Boa-2
 	 4-2-Diogo Neto-Geral-Ainda bem-3
-		 9-4-Miguel Cardoso-Geral-pois-2
+		 9-4-Miguel Cardoso-Geral-pois-3
  8-0-Pedro Saraiva-Notícias-Escolas abertas!!!-121
 	 18-8-Duarte Carvalho-Notícias-Maravilha-20
 	 10-8-João Teixeira-Notícias-Não sei não, com o número de casos a aumentar...-72
  12-0-Rodrigo Silva-O Fim-O fim de um livro é o inicio de outro-53
 	 14-12-Pedro Nunes-O Fim-WoW-12
+		 21-14-Demo-O Fim-Resposta de demonstração-0
 	 13-12-Eduardo Silva-O Fim-Quem diria-22
 		 15-13-Ana Vidal-O Fim-Realmente-15
  17-0-Diogo Araújo-Inspiração-[algo inspirador]-87

@@ -1,0 +1,113 @@
+algoritmo "Inserir um Tweet pelo utilizador e resposta"
+objectivo: Inserir Tweet para um ficheiro com o nome do utilizador e responder a tweet de outro utilizador.
+
+/
+importa AtualizarFicheiro
+//função
+funcao InserirTweet(nome:caractere)
+var
+	likes,p:inteiro
+	f:file stream
+	topico,tweet,linhas[100]:caracter
+
+inicio
+	
+	likes <- 0
+	
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerLinhas()
+	f.fechar()
+
+	p <- tamanho(linhas)
+
+	Por cada linha em Linhas fazer
+	
+		linha <- linha.remover("\n")
+		linha <- linha.separa("-")
+	
+		se (p == linha[0]) então
+			p++
+		fimse
+
+	fimPorCada
+	
+	f <- Abrir("tweets.txt","a")
+
+	Escreve("Insira tópico: ")
+	ler(topico)
+	
+	fazer
+		Escreve(Insira tweet)
+		ler(tweet)
+
+	enquanto(Tamanho(tweet)>280)
+
+	FicheiroEscreve(f,"%d-%s-%s-%s-%d\n",p,nome,topico,tweet,likes)
+	f.fechar()
+	
+	Escreve("Tweet inserido com sucesso")
+	
+fimfuncao
+
+funcao Responde(nome:caracter)
+var
+	likes,p,encontrou,IdProcura:inteiro
+	f:file stream
+	topico,tweet,linhas[100],Resposta[100]:caracter
+
+inicio
+
+	i <- 0
+	likes <- 0
+	
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerLinhas()
+	f.fechar()
+
+	p <- tamanho(linhas)
+
+	Por cada linha em Linhas fazer
+	
+		linha <- linha.remover("\n")
+		linha <- linha.separa("-")
+	
+		se (p == linha[0]) então
+			p++
+		fimse
+
+	fimPorCada
+
+	Escreve("Insira Id do tweet a responder")
+	ler(IdProcura)
+
+	Por cada linha em Linhas fazer
+	
+		linha <- linha.remover("\n")
+		linha <- linha.remover()
+		linha <- linha.separa("-")
+	
+		se (IdProcura == linha[0]) então
+			encontrou <- 1
+
+			Escreve("Insira tweet de resposta")
+			ler(tweet)
+
+			topico <- linha[3]
+			Resposta <- [p,ln[0],nome,topico,tweet,likes]
+			Resposta <- Resposta.adiciona("-")
+			Resposta <- Resposta + "\n"
+			Linhas.insert((i+1),Resp)
+		fimse
+		i++
+	fimPorCada
+
+	AtualizarFicheiro(Linhas)
+fimfuncao
+
+//algoritmo
+inicio
+	
+	InserirTweet("João")
+	Responde("Maria")
+fim
+	

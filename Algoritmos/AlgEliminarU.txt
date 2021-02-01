@@ -1,0 +1,58 @@
+algoritmo "Eliminar Utilizador"
+objectivo: Eliminar um utilizador.
+
+//função
+funcao ElimU(nome)
+var
+	linhas[100],op,Nomeprocura: caractere
+	f:file stream
+	encontrou:int
+
+inicio
+	i <- 0
+	encontrou <- 0
+	Nomeprocura <- ""
+
+	f <- Abrir("users.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	
+	Nomeprocura <- nome
+
+	Por cada linha em Linhas fazer
+		linha <- linha.remover("\n")		
+		linha <- linha.separa("-")
+	
+		Se(Nomeprocura == linha[0]) então
+			encontrou <- 1
+			
+			Escrever("Tem a certeza que deseja eliminar?")
+			ler(op)
+
+			se (op == "sim") então
+				linha <- linha.adicionar("-")
+				linha <- linha +"\n"
+				Linhas.remove(linha)
+				fimPorCada
+			
+			seNão
+				encontrou <- -1
+				fimPorCada
+			fimse
+
+		fimse
+	fimPorCada
+	
+	se (encontrou == 0) então
+		Escreve("Utilizador não existe")
+	seNão
+		Escreve("Utilizador eliminado com sucesso")
+		AtualizarFicheiro("tweets.txt",Linhas)
+	fimse
+fimfuncao
+
+//algoritmo
+inicio
+	ElimU("João")
+fim	

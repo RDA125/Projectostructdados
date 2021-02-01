@@ -1,0 +1,92 @@
+algoritmo "Alterar dados Utilizador"
+objectivo: Alterar informação do utilizador.
+
+
+/
+importa CriaMenu,Atualizarficheiro
+//função
+funcao AlterarUtil(nome)
+var
+	novonome,novoemail, linhas[100]: caractere
+	f:file stream
+	novonumero,novotelefone,encontrou,op,i:int
+
+inicio
+	i <- 0
+	encontrou <- 0
+
+	f <- Abrir("users.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	Por cada linha em Linhas fazer
+		linha <- linha.remover("\n")		
+		linha <- linha.separa("-")
+	
+		Se(nome == linha[0]) então
+			encontrou <- 1
+			
+			op <- CriaMenu(4,"Alterar",["Nome","Email","número","Telefone"],"Volta atrás")
+		
+			caso(op)
+				caso 1 fazer
+					Escreve("Insira novo nome")
+					ler(novonome)
+					
+					linha[0] <-novonome
+					linha <- linha.adicionar("-")
+					linha <- linha + "\n"
+					Linhas[i] <- linha
+				caso 2 fazer
+					Escreve("Insira novo email")
+					ler(novoemail)
+					
+					linha[1] <-novoemail
+					linha <- linha.adicionar("-")
+					linha <- linha + "\n"
+					Linhas[i] <- linha
+				caso 3 fazer
+					fazer
+						Escreve("Insira novo número")
+						ler(novonumero)
+					enquanto(novonumero<1000000 ou novonumero>9999999)
+					
+					linha[2] <-novoemail
+					linha <- adicionar("-")
+					linha <- linha + "\n"
+					Linhas[i] <- linha
+				caso 4 fazer
+					fazer
+						Escreve("Insira novo número de Telefone")
+						ler(novotelefone)
+					enquanto(novotelefone<910000000 ou novotelefone>999999999)
+					
+					linha[3] <-novotelefone
+					linha <- adicionar("-")
+					linha <- linha + "\n"
+					Linhas[i] <- linha	
+				caso 0 fazer
+					encontrou <- -1
+					fimPorCada
+			fimcaso
+
+		fimse
+		i++
+	fimPorCada
+	
+	se (encontrou == 0) então
+		Escreve("Nome não existe")
+	
+	seNão se(encontrou == -1)
+		fimfuncao
+	
+	seNão
+		Escreve("Valores alterados com sucesso")
+		AtualizarFicheiro("users.txt",Linhas)
+	fimse
+fimfuncao
+
+//algoritmo
+inicio
+	AlterarUtil("João")
+fim	

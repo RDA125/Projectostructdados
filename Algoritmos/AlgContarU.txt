@@ -1,0 +1,51 @@
+algoritmo "Contar de Utilizador"
+objectivo: Contar utilizadores por nome.
+
+/
+importa CriaMenu
+//função
+funcao ContU()
+var
+	NomeProc, linhas[100]: caractere
+	f:file stream
+	cont,op:int
+
+inicio
+	cont <- 0
+
+	f <- Abrir("users.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+	op <- CriaMenu(1,"Contar Utilizador",["Nome"],"voltar átras")
+	
+	caso(op)
+		caso 0 fazer
+			fimfuncao
+		caso 1 fazer
+			Escreve("Insira nome")
+			ler(NomeProc)
+			
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Nome,email,numero,telefone <- linha.separa("-")
+	
+				Se(Semelhante(Nome,NomeProc)) então
+					cont++
+				fimse
+			fimPorCada
+			
+			se(cont == 0) então
+				Escreve("Não existe Utilizadores com este nome")
+			seNã0
+				Escreve("%s: %d\n",NomeProc,cont)
+			fimse
+		
+		
+	fimcaso
+fimfuncao
+
+//algoritmo
+inicio
+	ContU()
+fim	

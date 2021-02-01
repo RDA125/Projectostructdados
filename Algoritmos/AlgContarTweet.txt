@@ -1,0 +1,90 @@
+algoritmo "Contar tweets"
+objectivo: contar numero de tweets com o mesmo nome, topico, numero de likes.
+
+/
+importa CriaMenu
+//função
+funcao ContTweet()
+var
+	NomeProc,TopicoProc, linhas[100]: caractere
+	f:file stream
+	op,cont,LikesProc:int
+
+inicio
+	cont <- 0
+
+	f <- Abrir("tweets.txt","r")
+	linhas <- f.lerlinhas()
+	f.fechar()
+	
+
+	op <- CriaMenu(3,"Contar Tweets",["Nome","Tópico","Likes"],"voltar átras")
+	
+	caso(op)
+		caso 0 fazer
+			fimfuncao
+		caso 1 fazer
+			Escreve("Insira nome")
+			ler(NomeProc)
+			
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
+	
+				Se(NomeProc == Nome) então
+					cont++
+					
+				fimse
+			fimPorCada
+			
+			se(cont == 0) então
+				Escreve("Não existe tweets com este nome")
+			seNã0
+				Escreve("%s: %d\n",NomeProc,cont)
+			fimse
+		
+		caso 2 fazer
+			Escreve("Insira topico")
+			ler(TopicoProc)
+			
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
+	
+				Se(TopicoProc == Topico) então
+					cont++
+				fimse
+			fimPorCada
+			
+			se(cont == 0) então
+				Escreve("Não existe tweets com este topico")
+			seNã0
+				Escreve("%s: %d\n",TopicoProc,cont)
+			fimse
+		
+		Caso 3 fazer
+			Escreve("Insira numero de likes")
+			ler(LikesProc)
+			
+			Por cada linha em Linhas fazer
+				linha <- linha.remover("\n")		
+				Id,Nome,Topico,tweet,Likes <- linha.separa("-")
+	
+				Se(LikesProc == Likes) então
+					cont++
+				fimse
+			fimPorCada
+			
+			se(cont == 0) então
+				Escreve("Não existe tweets com este numero de likes")
+			seNã0
+				Escreve("Likes %d: %d\n",LikesProc,cont)
+			fimse
+		
+	fimcaso
+fimfuncao
+
+//algoritmo
+inicio
+	ContTweet()
+fim	
